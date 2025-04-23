@@ -2,6 +2,8 @@ from insightface.app import FaceAnalysis
 import cv2
 import torch
 
+import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 model_root_path = '../../model_ckpts/insightface_models/'
 

@@ -220,7 +220,11 @@ class TalkingFaceVideo(Dataset):
                 #       f'(1) the maximum left reference index is bigger than 0; '
                 #       f'(2) the minimum right reference index is smaller than video_len (it is {video_len} here). '
                 #       f'NOW SKIP IT!')
-                index += 1
+                # 避免索引越界错误
+                if index < len(self.videos_info) - 1:
+                    index += 1
+                else:
+                    index = 0
                 continue
 
             reference_idx_range = list(range(video_len))
@@ -242,8 +246,11 @@ class TalkingFaceVideo(Dataset):
                 target_image = video_frames[frame_idx, ...]
 
                 # kps_image = kps_frames[frame_idx, ...]
-                kps_image = get_kps_image(target_image, face_info=face_info[frame_idx][0], kps_type=self.kps_type)
-
+                try:
+                    kps_image = get_kps_image(target_image, face_info=face_info[frame_idx][0], kps_type=self.kps_type)
+                except Exception as e:
+                    print(f"IndexError: frame_idx={frame_idx}, face_info length={len(face_info)}, face_info[frame_idx] type={type(face_info[frame_idx])}")
+                    raise e
                 face_mask = self.get_face_mask(target_image, face_info=face_info[frame_idx][0])
                 lip_mask = self.get_lip_mask(target_image, face_info=face_info[frame_idx][0], scale=2.0)
 

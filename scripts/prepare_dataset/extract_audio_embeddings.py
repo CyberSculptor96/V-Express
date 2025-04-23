@@ -3,6 +3,8 @@ import torchvision
 import torchaudio
 from transformers import Wav2Vec2Model, Wav2Vec2Processor
 
+import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 def prepare_audio_embeddings(audio_waveform, audio_processor, audio_encoder, device, dtype):
     audio_waveform = audio_processor(audio_waveform, return_tensors="pt", sampling_rate=16000)['input_values']
