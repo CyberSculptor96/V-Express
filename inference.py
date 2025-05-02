@@ -23,6 +23,8 @@ from pipelines.utils import zero_module
 from datasets.utils import draw_kps_image
 from pipelines.context import compute_context_indices, compute_num_context
 
+# import warnings
+# warnings.filterwarnings("ignore", category=FutureWarning)
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -233,7 +235,7 @@ def main():
     app.prepare(ctx_id=0, det_size=(args.image_height, args.image_width))
 
     reference_image = Image.open(args.reference_image_path).convert('RGB')
-    reference_image = reference_image.resize((args.image_height, args.image_width))
+    # reference_image = reference_image.resize((args.image_height, args.image_width))
 
     reference_image_for_kps = cv2.imread(args.reference_image_path)
     reference_image_for_kps = cv2.resize(reference_image_for_kps, (args.image_width, args.image_height))

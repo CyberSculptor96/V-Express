@@ -1,5 +1,9 @@
-## new
+# new
 **/output/
+HDTF/
+exp_output/
+exp_output_scratch/
+mlruns/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -36,6 +36,16 @@ from modules import UNet2DConditionModel, UNet3DConditionModel, VKpsGuider, Audi
 from utils import seed_everything
 from pipelines.utils import zero_module
 
+from pipelines import VExpressPipeline
+from pipelines.context import compute_context_indices, compute_num_context
+from pipelines.utils import save_video
+from datasets.utils import draw_kps_image
+from PIL import Image
+import torchaudio
+from insightface.app import FaceAnalysis
+import cv2
+from datetime import datetime
+
 warnings.filterwarnings("ignore")
 
 logger = get_logger(__name__, log_level="INFO")
@@ -215,13 +225,135 @@ def compute_snr(noise_scheduler, timesteps):
     return snr
 
 
+def log_validation(
+        vae,
+        net,
+        scheduler,
+        accelerator,
+        audio_encoder,
+        audio_processor,
+        cfg,
+        step,
+        timestamp
+):
+    ori_net = accelerator.unwrap_model(net)
+    reference_net = ori_net.reference_net
+    denoising_unet = ori_net.denoising_unet
+    v_kps_guider = ori_net.v_kps_guider
+    audio_projection = ori_net.audio_projection
+
+    start_time = time.time()
+    generator = torch.Generator().manual_seed(42)
+    device = accelerator.device
+    if cfg.weight_dtype == 'fp16':
+        dtype = torch.float16
+    elif cfg.weight_dtype == 'fp32':
+        dtype = torch.float32
+    elif cfg.weight_dtype == 'bf16':
+        dtype = torch.bfloat16
+
+    pipeline = VExpressPipeline(
+        vae=vae,
+        reference_net=reference_net,
+        denoising_unet=denoising_unet,
+        v_kps_guider=v_kps_guider,
+        audio_processor=audio_processor,
+        audio_encoder=audio_encoder,
+        audio_projection=audio_projection,
+        scheduler=scheduler,
+    ).to(dtype=dtype, device=device)
+
+    app = FaceAnalysis(
+        providers=['CUDAExecutionProvider' if device.type == 'cuda' else 'CPUExecutionProvider'],
+        provider_options=[{'device_id': 0}] if device.type == 'cuda' else None,
+        root=cfg.val.insightface_model_path,
+    )
+    app.prepare(ctx_id=0, det_size=(cfg.val.image_height, cfg.val.image_width))
+
+    ref_image_paths = [
+        # "test_samples/emo/talk_emotion/ref.jpg",
+        "test_samples/short_case/tys/ref.jpg",
+    ]
+
+    audio_paths = [
+        "test_samples/emo/talk_emotion/aud.mp3",
+    ]
+
+    for ref_image_path in ref_image_paths:
+        reference_image = Image.open(ref_image_path).convert("RGB")
+
+        reference_image_for_kps = cv2.imread(ref_image_path)
+        reference_image_for_kps = cv2.resize(reference_image_for_kps, (cfg.val.image_width, cfg.val.image_height))
+        reference_kps = app.get(reference_image_for_kps)[0].kps[:3]
+    
+    del app
+    torch.cuda.empty_cache()
+    
+    audio_waveform, audio_sample_rate = torchaudio.load(audio_paths[0])
+    print(f'Length of audio is {audio_waveform.shape[1]} with the sampling rate of {audio_sample_rate}.')
+    if audio_sample_rate != 16000:
+        audio_waveform = torchaudio.functional.resample(
+            audio_waveform,
+            orig_freq=audio_sample_rate,
+            new_freq=16000,
+        )
+    audio_waveform = audio_waveform.mean(dim=0)
+    duration = audio_waveform.shape[0] / 16000
+    
+    init_video_length = int(duration * cfg.val.fps) # fps=30
+    num_contexts = compute_num_context(init_video_length, cfg.val.context_frames, cfg.val.context_overlap)
+    context_indices = compute_context_indices(
+        num_context=num_contexts, context_size=cfg.val.context_frames, context_overlap=cfg.val.context_overlap
+    )
+    video_length = context_indices[-1][1] + 1
+    fps = video_length / duration
+    print(f"The corresponding video length is {video_length}, fps is {fps:.2f}.")
+
+    kps_sequence = torch.tensor([reference_kps] * video_length)
+    kps_images = []
+    for i in range(video_length):
+        kps_image = draw_kps_image(cfg.val.image_height, cfg.val.image_width, kps_sequence[i])
+        kps_images.append(Image.fromarray(kps_image))
+
+    video_tensor = pipeline(
+        reference_image=reference_image,
+        kps_images=kps_images,
+        audio_waveform=audio_waveform,
+        width=cfg.val.image_width,
+        height=cfg.val.image_height,
+        video_length=video_length,
+        num_inference_steps=cfg.val.num_inference_steps,
+        guidance_scale=cfg.val.guidance_scale,
+        context_frames=cfg.val.context_frames,
+        context_overlap=cfg.val.context_overlap,
+        reference_attention_weight=cfg.val.reference_attention_weight,
+        audio_attention_weight=cfg.val.audio_attention_weight,
+        num_pad_audio_frames=cfg.val.num_pad_audio_frames,
+        generator=generator,
+        do_multi_devices_inference=False,
+        save_gpu_memory=False,
+    )
+
+    if accelerator.is_main_process:
+        output_path = osp.join(cfg.val.output_dir, f"{timestamp}", f"video-{step}.mp4")
+        os.makedirs(osp.dirname(output_path), exist_ok=True)
+        save_video(video_tensor, audio_paths[0], output_path, device, fps)
+        consumed_time = time.time() - start_time
+        generation_fps = video_tensor.shape[2] / consumed_time
+        print(f'The generated video has been saved at {output_path}. '
+              f'The generation time is {consumed_time:.1f} seconds. '
+              f'The generation FPS is {generation_fps:.2f}.')
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=str, default="./configs/training/stage2.yaml")
     args = parser.parse_args()
 
     cfg = OmegaConf.load(args.config)
-    exp_name = '.'.join(Path(args.config).name.split('.')[:-1])
+
+    timestamp = datetime.now().strftime("%m%d_%H%M")
+    exp_name = '.'.join(Path(args.config).name.split('.')[:-1]) + f"-{timestamp}"
 
     kwargs = DistributedDataParallelKwargs(find_unused_parameters=False)
     accelerator = Accelerator(
@@ -251,7 +383,7 @@ def main():
 
     local_rank = accelerator.device
 
-    save_dir = f"{cfg.output_dir}/{exp_name}"
+    save_dir = f"{cfg.output_dir}/{exp_name}-0424_2120"
     if accelerator.is_main_process:
         pathlib.Path(save_dir).mkdir(exist_ok=True, parents=True)
         os.makedirs(f"{save_dir}/log", exist_ok=True)
@@ -284,7 +416,7 @@ def main():
     # initialize the pretrained fixed modules
     vae = AutoencoderKL.from_pretrained(cfg.vae_model_path).to(device=local_rank, dtype=weight_dtype)
     audio_encoder = Wav2Vec2Model.from_pretrained(cfg.audio_encoder_path).to(dtype=weight_dtype, device=local_rank)
-    # audio_processor = Wav2Vec2Processor.from_pretrained(cfg.audio_encoder_path)
+    audio_processor = Wav2Vec2Processor.from_pretrained(cfg.audio_encoder_path)
 
     # initialize our modules
     reference_net = UNet2DConditionModel.from_pretrained(
@@ -378,16 +510,17 @@ def main():
                 # logger.info(name)
     elif cfg.train_stage == 'stage_2_resume':
         pass
-    elif cfg.train_stage == 'stage_3':
-        for name, params in denoising_unet.named_parameters():
-            if 'temporal_transformer.proj_out' in name:
-                zero_module(params)
-                # logger.info(name)
-            if 'attn2.to_out' in name:
-                zero_module(params)
-                # logger.info(name)
-    else:
-        raise NotImplementedError(f"{cfg.train_stage} not implement")
+    ## test to fix validation bug.
+    # elif cfg.train_stage == 'stage_3':
+    #     for name, params in denoising_unet.named_parameters():
+    #         if 'temporal_transformer.proj_out' in name:
+    #             zero_module(params)
+    #             # logger.info(name)
+    #         if 'attn2.to_out' in name:
+    #             zero_module(params)
+    #             # logger.info(name)
+    # else:
+    #     raise NotImplementedError(f"{cfg.train_stage} not implement")
 
     if accelerator.is_main_process:
         print(f'#############')
@@ -503,7 +636,29 @@ def main():
     )
     dataloader = torch.utils.data.DataLoader(dataset, batch_size=cfg.data.train_bs, shuffle=True, num_workers=4)
 
-    (net, optimizer, dataloader, lr_scheduler) = accelerator.prepare(net, optimizer, dataloader, lr_scheduler)
+    ## 新增：验证集
+    val_dataloader = None
+    if cfg.val.data == True:
+        val_dataset = TalkingFaceVideo(
+            image_size=(cfg.data.train_height, cfg.data.train_width),
+            meta_paths=cfg.data.val_meta_paths,
+            flip_rate=0.0,
+            image_scale=(1.0, 1.0),
+            image_ratio=(1.0, 1.0),
+            sample_rate=cfg.data.sample_rate,
+            num_frames=cfg.data.num_frames,
+            reference_margin=cfg.data.reference_margin,
+            num_padding_audio_frames=cfg.data.num_padding_audio_frames,
+            kps_type=cfg.data.kps_type,
+        )
+        val_dataloader = torch.utils.data.DataLoader(val_dataset, batch_size=cfg.data.val_bs if hasattr(cfg.data, "val_bs") else 1,
+                                                    shuffle=False, num_workers=2)
+    
+        (net, optimizer, dataloader, val_dataloader, lr_scheduler) = accelerator.prepare(
+            net, optimizer, dataloader, val_dataloader, lr_scheduler
+        )
+    else:
+        (net, optimizer, dataloader, lr_scheduler) = accelerator.prepare(net, optimizer, dataloader, lr_scheduler)
 
     # We need to recalculate our total training steps as the size of the training dataloader may have changed.
     num_update_steps_per_epoch = math.ceil(len(dataloader) / cfg.solver.gradient_accumulation_steps)
@@ -557,6 +712,22 @@ def main():
 
         first_epoch = global_step // num_update_steps_per_epoch
         resume_step = global_step % num_update_steps_per_epoch
+
+    ## validate before training.
+    if accelerator.is_main_process:
+        generator = torch.Generator(device=accelerator.device)
+        generator.manual_seed(cfg.seed)
+        # log_validation(
+        #     vae=vae,
+        #     net=net,
+        #     scheduler=noise_scheduler,
+        #     accelerator=accelerator,
+        #     audio_encoder=audio_encoder,
+        #     audio_processor=audio_processor,
+        #     cfg=cfg,
+        #     step=global_step,
+        #     timestamp=timestamp,
+        # )
 
     # Only show the progress bar once on each machine.
     progress_bar = tqdm(range(global_step, cfg.solver.max_train_steps), disable=not accelerator.is_local_main_process)
@@ -671,7 +842,7 @@ def main():
             # save model after each epoch
             if global_step % cfg.checkpointing_steps == 1:
                 save_path = os.path.join(save_dir, f"checkpoint-{global_step}")
-                # accelerator.save_state(save_path)
+                accelerator.save_state(save_path)
 
                 if accelerator.is_main_process:
                     if cfg.save_all or cfg.module_training.denoising_unet:
@@ -696,6 +867,37 @@ def main():
                     if cfg.save_all or cfg.module_training.motion_module:
                         module = accelerator.unwrap_model(net.denoising_unet)
                         save_motion_module_checkpoint(module, save_dir, "motion_module", global_step)
+            
+            if global_step % cfg.val.validation_steps == 0 or global_step == 1:
+                if cfg.val.data == True:
+                    net.eval()
+                    val_losses = []
+                    with torch.no_grad():
+                        for vb in tqdm(val_dataloader):
+                            v_loss = forward_compute_loss(
+                                vb,
+                                vae=vae, net=net, noise_scheduler=noise_scheduler,
+                                cfg=cfg, weight_dtype=weight_dtype, device=accelerator.device, training=False
+                            )
+                            val_losses.append(accelerator.gather(v_loss))
+                    mean_val = torch.cat(val_losses).mean().item()
+                    accelerator.log({"val_loss": mean_val}, step=global_step)
+                    net.train()
+                
+                if accelerator.is_main_process:
+                    generator = torch.Generator(device=accelerator.device)
+                    generator.manual_seed(cfg.seed)
+                    log_validation(
+                        vae=vae,
+                        net=net,
+                        scheduler=noise_scheduler,
+                        accelerator=accelerator,
+                        audio_encoder=audio_encoder,
+                        audio_processor=audio_processor,
+                        cfg=cfg,
+                        step=global_step,
+                        timestamp=timestamp,
+                    )
 
     # save model after each epoch
     # if accelerator.is_main_process:
@@ -751,6 +953,108 @@ def save_motion_module_checkpoint(model, save_dir, prefix, ckpt_num):
             mm_state_dict[key] = state_dict[key].clone()
 
     torch.save(mm_state_dict, save_path)
+
+
+def forward_compute_loss(
+        batch: dict,
+        vae: AutoencoderKL,
+        net: nn.Module,
+        noise_scheduler: DDIMScheduler,
+        cfg,
+        weight_dtype: torch.dtype,
+        device: torch.device,
+        training: bool = False,   # ← 验证时传 False
+) -> torch.Tensor:
+    """
+    Args:
+        batch            : 来自 DataLoader 的 batch 字典
+        vae              : 已经 .to(dtype, device) 的 AutoencoderKL
+        net              : 封装好 ReferenceNet / UNet3D / Guiders 的模型
+        noise_scheduler  : DDIMScheduler (或其它)
+        cfg              : OmegaConf 配置对象，提供超参
+        weight_dtype     : torch.float16 / bfloat16 / float32
+        device           : 当前计算设备
+        training         : 为 True 时会随机做 unconditional forward
+    Returns:
+        loss  (标量张量, 位于 device)
+    """
+
+    # ----------------------- 准备 target latents ------------------------
+    target_images = batch["target_images"].to(device, dtype=weight_dtype)        # (b, 3, f, h, w)
+    with torch.no_grad():
+        length = target_images.shape[2]
+        target_images_flat = rearrange(target_images, "b c f h w -> (b f) c h w")
+        latents = vae.encode(target_images_flat).latent_dist.sample()
+        latents = rearrange(latents, "(b f) c h w -> b c f h w", f=length)
+        latents = latents * 0.18215                                             # SD 约定缩放
+
+    # ----------------------- 噪声与时间步 -------------------------------
+    noise = torch.randn_like(latents)
+    if cfg.noise_offset > 0:
+        noise += cfg.noise_offset * torch.randn(
+            (latents.shape[0], latents.shape[1], 1, 1, 1), device=device
+        )
+
+    bsz = latents.shape[0]
+    timesteps = torch.randint(
+        0, noise_scheduler.num_train_timesteps, (bsz,), device=device
+    ).long()
+
+    # -----------------------
+    #  编码 reference / 指导信息
+    # -----------------------
+    with torch.no_grad():
+        reference_image = batch["reference_image"].to(device=vae.device, dtype=vae.dtype)
+        reference_latents = vae.encode(reference_image).latent_dist.sample() * 0.18215
+
+        kps_images = batch["kps_images"].to(device, dtype=weight_dtype)          # (b, f, c, H, W)
+        audio_frame_embeddings = batch["audio_frame_embeddings"].to(device, dtype=weight_dtype)
+
+        lip_masks = batch["lip_masks"].to(device=vae.device, dtype=vae.dtype)    # (1, f, h//8, w//8)
+
+    # ----------------------- 加噪声 ----------------------------
+    noisy_latents = noise_scheduler.add_noise(latents, noise, timesteps)
+
+    # ----------------------- 预测噪声 ---------------------------
+    do_uncond = training and (random.random() < cfg.uncond_ratio)
+    model_pred = net(
+        noisy_latents,
+        timesteps,
+        reference_latents,
+        audio_frame_embeddings,
+        kps_images,
+        do_unconditional_forward=do_uncond,
+    )
+
+    # ----------------------- 计算目标 ---------------------------
+    if noise_scheduler.prediction_type == "epsilon":
+        target = noise
+    elif noise_scheduler.prediction_type == "v_prediction":
+        target = noise_scheduler.get_velocity(latents, noise, timesteps)
+    else:
+        raise ValueError(f"Unknown prediction type {noise_scheduler.prediction_type}")
+
+    loss = F.mse_loss(model_pred.float(), target.float(), reduction="none")
+
+    # 口型区域加权（可选）
+    if "lip_loss_weight" in cfg.data:
+        loss *= ((cfg.data.lip_loss_weight - 1) * lip_masks + 1.)
+
+    # ------------------ SNR γ re-weight (可选) ------------------
+    if cfg.snr_gamma != 0:
+        snr = compute_snr(noise_scheduler, timesteps)
+        if noise_scheduler.config.prediction_type == "v_prediction":
+            snr = snr + 1
+        weights = torch.stack([snr, cfg.snr_gamma * torch.ones_like(timesteps)], dim=1).min(dim=1)[0] / snr
+        loss = loss.mean(dim=list(range(1, len(loss.shape)))) * weights
+
+    loss = loss.mean()
+
+    # 清理 reference control，防止显存累加
+    net.reference_control_reader.clear()
+    net.reference_control_writer.clear()
+
+    return loss
 
 
 if __name__ == "__main__":
