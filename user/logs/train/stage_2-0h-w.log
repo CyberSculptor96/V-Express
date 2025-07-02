@@ -1,0 +1,55 @@
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+[2025-06-30 06:36:06,999] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.4
+[93m [WARNING] [0m using untested triton version (3.0.0), only 1.0.0 is known to be compatible
+Traceback (most recent call last):
+  File "/shareddisk/yexin/huanghj/workspace/V-Express/train.py", line 1079, in <module>
+    main()
+  File "/shareddisk/yexin/huanghj/workspace/V-Express/train.py", line 361, in main
+    cfg = OmegaConf.load(args.config)
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/omegaconf/omegaconf.py", line 189, in load
+    with io.open(os.path.abspath(file_), "r", encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/shareddisk/yexin/huanghj/workspace/V-Express/configs/0h/stage_2.yaml'
+E0630 06:36:40.538000 12635450316608 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: 1) local_rank: 0 (pid: 601351) of binary: /shareddisk/yexin/huanghj/miniconda3/envs/hallo/bin/python3.10
+Traceback (most recent call last):
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/accelerate/commands/launch.py", line 1183, in launch_command
+    deepspeed_launcher(args)
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/accelerate/commands/launch.py", line 868, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-06-30_06:36:40
+  host      : cluster-2-compute-7.us-southcentral1-a.compute.internal
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 601351)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

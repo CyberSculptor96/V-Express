@@ -1,0 +1,672 @@
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+[2025-06-27 09:35:59,136] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.4
+[93m [WARNING] [0m using untested triton version (3.0.0), only 1.0.0 is known to be compatible
+W0627 09:36:13.910000 15797023512384 torch/distributed/run.py:779] 
+W0627 09:36:13.910000 15797023512384 torch/distributed/run.py:779] *****************************************
+W0627 09:36:13.910000 15797023512384 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0627 09:36:13.910000 15797023512384 torch/distributed/run.py:779] *****************************************
+[2025-06-27 09:36:36,290] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-27 09:36:36,396] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-27 09:36:36,414] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-27 09:36:36,416] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.4
+[93m [WARNING] [0m using untested triton version (3.0.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.4
+[93m [WARNING] [0m using untested triton version (3.0.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.4
+[93m [WARNING] [0m using untested triton version (3.0.0), only 1.0.0 is known to be compatible
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.4
+[93m [WARNING] [0m using untested triton version (3.0.0), only 1.0.0 is known to be compatible
+[2025-06-27 09:36:38,553] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-06-27 09:36:38,553] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-06-27 09:36:38,554] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-06-27 09:36:38,556] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-06-27 09:36:38,561] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+06/27/2025 09:36:39 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: fp16
+ds_config: {'fp16': {'enabled': True, 'loss_scale': 0, 'loss_scale_window': 1000, 'initial_scale_power': 16, 'hysteresis': 2, 'min_loss_scale': 1}, 'bf16': {'enabled': False}, 'zero_optimization': {'stage': 2, 'allgather_partitions': True, 'allgather_bucket_size': 200000000.0, 'overlap_comm': True, 'reduce_scatter': True, 'reduce_bucket_size': 200000000.0, 'contiguous_gradients': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 1.0, 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False}
+
+{'scaling_factor', 'use_quant_conv', 'use_post_quant_conv', 'force_upcast', 'shift_factor', 'latents_mean', 'latents_std'} was not found in config. Values will be initialized to default values.
+Some weights of Wav2Vec2Model were not initialized from the model checkpoint at ./pretrained_model/wav2vec2-base-960h/ and are newly initialized: ['wav2vec2.masked_spec_embed']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+An error occurred while trying to fetch ./pretrained_model/sd-image-variations-diffusers: Error no file named diffusion_pytorch_model.safetensors found in directory ./pretrained_model/sd-image-variations-diffusers.
+An error occurred while trying to fetch ./pretrained_model/sd-image-variations-diffusers: Error no file named diffusion_pytorch_model.safetensors found in directory ./pretrained_model/sd-image-variations-diffusers.
+An error occurred while trying to fetch ./pretrained_model/sd-image-variations-diffusers: Error no file named diffusion_pytorch_model.safetensors found in directory ./pretrained_model/sd-image-variations-diffusers.
+An error occurred while trying to fetch ./pretrained_model/sd-image-variations-diffusers: Error no file named diffusion_pytorch_model.safetensors found in directory ./pretrained_model/sd-image-variations-diffusers.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+{'time_embedding_dim', 'upcast_attention', 'dropout', 'mid_block_only_cross_attention', 'encoder_hid_dim_type', 'resnet_time_scale_shift', 'addition_embed_type', 'time_cond_proj_dim', 'resnet_skip_time_act', 'transformer_layers_per_block', 'reverse_transformer_layers_per_block', 'resnet_out_scale_factor', 'projection_class_embeddings_input_dim', 'encoder_hid_dim', 'conv_in_kernel', 'timestep_post_act', 'addition_time_embed_dim', 'conv_out_kernel', 'attention_type', 'addition_embed_type_num_heads', 'class_embed_type', 'time_embedding_act_fn', 'class_embeddings_concat', 'num_attention_heads', 'mid_block_type', 'cross_attention_norm', 'time_embedding_type'} was not found in config. Values will be initialized to default values.
+Some weights of the model checkpoint were not used when initializing UNet2DConditionModel: 
+ ['conv_norm_out.weight, conv_norm_out.bias']
+06/27/2025 09:37:31 - INFO - modules.unet_3d - loaded temporal unet's pretrained weights from pretrained_model/sd-image-variations-diffusers/unet ...
+06/27/2025 09:37:31 - INFO - modules.unet_3d - loaded temporal unet's pretrained weights from pretrained_model/sd-image-variations-diffusers/unet ...
+06/27/2025 09:37:31 - INFO - modules.unet_3d - loaded temporal unet's pretrained weights from pretrained_model/sd-image-variations-diffusers/unet ...
+06/27/2025 09:37:32 - INFO - modules.unet_3d - loaded temporal unet's pretrained weights from pretrained_model/sd-image-variations-diffusers/unet ...
+{'upcast_attention', 'class_embed_type', 'resnet_time_scale_shift'} was not found in config. Values will be initialized to default values.
+06/27/2025 09:37:45 - INFO - modules.unet_3d - Loaded 453.20928M-parameter motion module
+06/27/2025 09:37:45 - INFO - modules.unet_3d - Loaded 453.20928M-parameter motion module
+06/27/2025 09:37:45 - INFO - modules.unet_3d - Loaded 453.20928M-parameter motion module
+06/27/2025 09:37:45 - INFO - modules.unet_3d - Loaded 453.20928M-parameter motion module
+06/27/2025 09:38:30 - INFO - __main__ - Loaded ReferenceNet from ./pretrained_model/Moore/reference_unet.pth. Info: _IncompatibleKeys(missing_keys=['conv_out.weight', 'conv_out.bias'], unexpected_keys=[])
+06/27/2025 09:38:30 - INFO - __main__ - Loaded VKpsGuider from ./pretrained_model/Moore/pose_guider.pth. Info: <All keys matched successfully>
+06/27/2025 09:39:18 - INFO - __main__ - Loaded Denoising U-Net from ./pretrained_model/Moore/denoising_unet.pth in type of moore_pretrained. Info: _IncompatibleKeys(missing_keys=['down_blocks.0.motion_modules.0.temporal_transformer.norm.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.norm.bias', 'down_blocks.0.motion_modules.0.temporal_transformer.proj_in.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.proj_in.bias', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.bias', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.bias', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'down_blocks.0.motion_modules.0.temporal_transformer.proj_out.weight', 'down_blocks.0.motion_modules.0.temporal_transformer.proj_out.bias', 'down_blocks.0.motion_modules.1.temporal_transformer.norm.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.norm.bias', 'down_blocks.0.motion_modules.1.temporal_transformer.proj_in.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.proj_in.bias', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.bias', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.bias', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'down_blocks.0.motion_modules.1.temporal_transformer.proj_out.weight', 'down_blocks.0.motion_modules.1.temporal_transformer.proj_out.bias', 'down_blocks.1.motion_modules.0.temporal_transformer.norm.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.norm.bias', 'down_blocks.1.motion_modules.0.temporal_transformer.proj_in.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.proj_in.bias', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.bias', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.bias', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'down_blocks.1.motion_modules.0.temporal_transformer.proj_out.weight', 'down_blocks.1.motion_modules.0.temporal_transformer.proj_out.bias', 'down_blocks.1.motion_modules.1.temporal_transformer.norm.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.norm.bias', 'down_blocks.1.motion_modules.1.temporal_transformer.proj_in.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.proj_in.bias', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.bias', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.bias', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'down_blocks.1.motion_modules.1.temporal_transformer.proj_out.weight', 'down_blocks.1.motion_modules.1.temporal_transformer.proj_out.bias', 'down_blocks.2.motion_modules.0.temporal_transformer.norm.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.norm.bias', 'down_blocks.2.motion_modules.0.temporal_transformer.proj_in.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.proj_in.bias', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.bias', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.bias', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'down_blocks.2.motion_modules.0.temporal_transformer.proj_out.weight', 'down_blocks.2.motion_modules.0.temporal_transformer.proj_out.bias', 'down_blocks.2.motion_modules.1.temporal_transformer.norm.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.norm.bias', 'down_blocks.2.motion_modules.1.temporal_transformer.proj_in.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.proj_in.bias', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.bias', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.bias', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'down_blocks.2.motion_modules.1.temporal_transformer.proj_out.weight', 'down_blocks.2.motion_modules.1.temporal_transformer.proj_out.bias', 'down_blocks.3.motion_modules.0.temporal_transformer.norm.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.norm.bias', 'down_blocks.3.motion_modules.0.temporal_transformer.proj_in.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.proj_in.bias', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.bias', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.bias', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'down_blocks.3.motion_modules.0.temporal_transformer.proj_out.weight', 'down_blocks.3.motion_modules.0.temporal_transformer.proj_out.bias', 'down_blocks.3.motion_modules.1.temporal_transformer.norm.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.norm.bias', 'down_blocks.3.motion_modules.1.temporal_transformer.proj_in.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.proj_in.bias', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.bias', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.bias', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'down_blocks.3.motion_modules.1.temporal_transformer.proj_out.weight', 'down_blocks.3.motion_modules.1.temporal_transformer.proj_out.bias', 'up_blocks.0.motion_modules.0.temporal_transformer.norm.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.norm.bias', 'up_blocks.0.motion_modules.0.temporal_transformer.proj_in.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.proj_in.bias', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.bias', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.bias', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'up_blocks.0.motion_modules.0.temporal_transformer.proj_out.weight', 'up_blocks.0.motion_modules.0.temporal_transformer.proj_out.bias', 'up_blocks.0.motion_modules.1.temporal_transformer.norm.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.norm.bias', 'up_blocks.0.motion_modules.1.temporal_transformer.proj_in.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.proj_in.bias', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.bias', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.bias', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'up_blocks.0.motion_modules.1.temporal_transformer.proj_out.weight', 'up_blocks.0.motion_modules.1.temporal_transformer.proj_out.bias', 'up_blocks.0.motion_modules.2.temporal_transformer.norm.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.norm.bias', 'up_blocks.0.motion_modules.2.temporal_transformer.proj_in.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.proj_in.bias', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.0.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.0.bias', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.1.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.1.bias', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'up_blocks.0.motion_modules.2.temporal_transformer.proj_out.weight', 'up_blocks.0.motion_modules.2.temporal_transformer.proj_out.bias', 'up_blocks.1.motion_modules.0.temporal_transformer.norm.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.norm.bias', 'up_blocks.1.motion_modules.0.temporal_transformer.proj_in.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.proj_in.bias', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.bias', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.bias', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'up_blocks.1.motion_modules.0.temporal_transformer.proj_out.weight', 'up_blocks.1.motion_modules.0.temporal_transformer.proj_out.bias', 'up_blocks.1.motion_modules.1.temporal_transformer.norm.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.norm.bias', 'up_blocks.1.motion_modules.1.temporal_transformer.proj_in.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.proj_in.bias', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.bias', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.bias', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'up_blocks.1.motion_modules.1.temporal_transformer.proj_out.weight', 'up_blocks.1.motion_modules.1.temporal_transformer.proj_out.bias', 'up_blocks.1.motion_modules.2.temporal_transformer.norm.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.norm.bias', 'up_blocks.1.motion_modules.2.temporal_transformer.proj_in.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.proj_in.bias', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.0.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.0.bias', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.1.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.1.bias', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'up_blocks.1.motion_modules.2.temporal_transformer.proj_out.weight', 'up_blocks.1.motion_modules.2.temporal_transformer.proj_out.bias', 'up_blocks.2.motion_modules.0.temporal_transformer.norm.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.norm.bias', 'up_blocks.2.motion_modules.0.temporal_transformer.proj_in.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.proj_in.bias', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.bias', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.bias', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'up_blocks.2.motion_modules.0.temporal_transformer.proj_out.weight', 'up_blocks.2.motion_modules.0.temporal_transformer.proj_out.bias', 'up_blocks.2.motion_modules.1.temporal_transformer.norm.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.norm.bias', 'up_blocks.2.motion_modules.1.temporal_transformer.proj_in.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.proj_in.bias', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.bias', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.bias', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'up_blocks.2.motion_modules.1.temporal_transformer.proj_out.weight', 'up_blocks.2.motion_modules.1.temporal_transformer.proj_out.bias', 'up_blocks.2.motion_modules.2.temporal_transformer.norm.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.norm.bias', 'up_blocks.2.motion_modules.2.temporal_transformer.proj_in.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.proj_in.bias', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.0.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.0.bias', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.1.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.1.bias', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'up_blocks.2.motion_modules.2.temporal_transformer.proj_out.weight', 'up_blocks.2.motion_modules.2.temporal_transformer.proj_out.bias', 'up_blocks.3.motion_modules.0.temporal_transformer.norm.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.norm.bias', 'up_blocks.3.motion_modules.0.temporal_transformer.proj_in.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.proj_in.bias', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.bias', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.bias', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'up_blocks.3.motion_modules.0.temporal_transformer.proj_out.weight', 'up_blocks.3.motion_modules.0.temporal_transformer.proj_out.bias', 'up_blocks.3.motion_modules.1.temporal_transformer.norm.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.norm.bias', 'up_blocks.3.motion_modules.1.temporal_transformer.proj_in.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.proj_in.bias', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.0.bias', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.norms.1.bias', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'up_blocks.3.motion_modules.1.temporal_transformer.proj_out.weight', 'up_blocks.3.motion_modules.1.temporal_transformer.proj_out.bias', 'up_blocks.3.motion_modules.2.temporal_transformer.norm.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.norm.bias', 'up_blocks.3.motion_modules.2.temporal_transformer.proj_in.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.proj_in.bias', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.0.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.0.bias', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.1.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.norms.1.bias', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'up_blocks.3.motion_modules.2.temporal_transformer.proj_out.weight', 'up_blocks.3.motion_modules.2.temporal_transformer.proj_out.bias', 'mid_block.motion_modules.0.temporal_transformer.norm.weight', 'mid_block.motion_modules.0.temporal_transformer.norm.bias', 'mid_block.motion_modules.0.temporal_transformer.proj_in.weight', 'mid_block.motion_modules.0.temporal_transformer.proj_in.bias', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_q.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_k.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_v.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.to_out.0.bias', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.0.pos_encoder.pe', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_q.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_k.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_v.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.to_out.0.bias', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.attention_blocks.1.pos_encoder.pe', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.0.bias', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.norms.1.bias', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.0.proj.bias', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.ff.net.2.bias', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.weight', 'mid_block.motion_modules.0.temporal_transformer.transformer_blocks.0.ff_norm.bias', 'mid_block.motion_modules.0.temporal_transformer.proj_out.weight', 'mid_block.motion_modules.0.temporal_transformer.proj_out.bias'], unexpected_keys=['down_blocks.0.resnets.0.norm1_5.weight', 'down_blocks.0.resnets.0.norm1_5.bias', 'down_blocks.0.resnets.1.norm1_5.weight', 'down_blocks.0.resnets.1.norm1_5.bias', 'down_blocks.1.resnets.0.norm1_5.weight', 'down_blocks.1.resnets.0.norm1_5.bias', 'down_blocks.1.resnets.1.norm1_5.weight', 'down_blocks.1.resnets.1.norm1_5.bias', 'down_blocks.2.resnets.0.norm1_5.weight', 'down_blocks.2.resnets.0.norm1_5.bias', 'down_blocks.2.resnets.1.norm1_5.weight', 'down_blocks.2.resnets.1.norm1_5.bias', 'down_blocks.3.resnets.0.norm1_5.weight', 'down_blocks.3.resnets.0.norm1_5.bias', 'down_blocks.3.resnets.1.norm1_5.weight', 'down_blocks.3.resnets.1.norm1_5.bias', 'up_blocks.0.resnets.0.norm1_5.weight', 'up_blocks.0.resnets.0.norm1_5.bias', 'up_blocks.0.resnets.1.norm1_5.weight', 'up_blocks.0.resnets.1.norm1_5.bias', 'up_blocks.0.resnets.2.norm1_5.weight', 'up_blocks.0.resnets.2.norm1_5.bias', 'up_blocks.1.resnets.0.norm1_5.weight', 'up_blocks.1.resnets.0.norm1_5.bias', 'up_blocks.1.resnets.1.norm1_5.weight', 'up_blocks.1.resnets.1.norm1_5.bias', 'up_blocks.1.resnets.2.norm1_5.weight', 'up_blocks.1.resnets.2.norm1_5.bias', 'up_blocks.2.resnets.0.norm1_5.weight', 'up_blocks.2.resnets.0.norm1_5.bias', 'up_blocks.2.resnets.1.norm1_5.weight', 'up_blocks.2.resnets.1.norm1_5.bias', 'up_blocks.2.resnets.2.norm1_5.weight', 'up_blocks.2.resnets.2.norm1_5.bias', 'up_blocks.3.resnets.0.norm1_5.weight', 'up_blocks.3.resnets.0.norm1_5.bias', 'up_blocks.3.resnets.1.norm1_5.weight', 'up_blocks.3.resnets.1.norm1_5.bias', 'up_blocks.3.resnets.2.norm1_5.weight', 'up_blocks.3.resnets.2.norm1_5.bias', 'mid_block.resnets.0.norm1_5.weight', 'mid_block.resnets.0.norm1_5.bias', 'mid_block.resnets.1.norm1_5.weight', 'mid_block.resnets.1.norm1_5.bias'])
+#############
+down_blocks.0.attentions.0.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.0.attentions.0.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.0.attentions.1.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.0.attentions.1.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.0.motion_modules.0.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.0.motion_modules.0.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.0.motion_modules.1.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.0.motion_modules.1.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.1.attentions.1.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.1.attentions.1.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.1.motion_modules.0.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.1.motion_modules.0.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.1.motion_modules.1.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.1.motion_modules.1.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.2.attentions.0.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.2.attentions.0.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.2.attentions.1.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.2.attentions.1.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.2.motion_modules.0.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.2.motion_modules.0.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.2.motion_modules.1.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.2.motion_modules.1.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.3.motion_modules.0.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.3.motion_modules.0.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.3.motion_modules.1.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+down_blocks.3.motion_modules.1.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.0.motion_modules.0.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.0.motion_modules.0.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.0.motion_modules.1.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.0.motion_modules.1.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.0.motion_modules.2.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.0.motion_modules.2.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.1.attentions.0.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.1.attentions.0.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.1.attentions.1.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.1.attentions.1.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.1.attentions.2.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.1.attentions.2.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.1.motion_modules.0.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.1.motion_modules.0.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.1.motion_modules.1.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.1.motion_modules.1.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.1.motion_modules.2.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.1.motion_modules.2.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.2.attentions.0.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.2.attentions.0.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.2.attentions.1.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.2.attentions.1.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.2.attentions.2.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.2.attentions.2.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.2.motion_modules.0.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.2.motion_modules.0.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.2.motion_modules.1.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.2.motion_modules.1.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.2.motion_modules.2.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.2.motion_modules.2.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.3.attentions.0.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.3.attentions.0.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.3.attentions.1.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.3.attentions.1.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.3.attentions.2.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.3.motion_modules.0.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.3.motion_modules.0.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.3.motion_modules.1.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.3.motion_modules.1.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.3.motion_modules.2.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+up_blocks.3.motion_modules.2.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+mid_block.attentions.0.transformer_blocks.0.attn2.to_out.0.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+mid_block.attentions.0.transformer_blocks.0.attn2.to_out.0.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+mid_block.motion_modules.0.temporal_transformer.proj_out.weight tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+mid_block.motion_modules.0.temporal_transformer.proj_out.bias tensor(0., device='cuda:0', dtype=torch.float16, grad_fn=<SumBackward0>)
+[2025-06-27 09:39:22,058] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.14.4, git-hash=unknown, git-branch=unknown
+[2025-06-27 09:39:24,342] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-06-27 09:39:24,347] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2025-06-27 09:39:24,349] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2025-06-27 09:39:24,532] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW8bit
+[2025-06-27 09:39:24,534] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW8bit type=<class 'bitsandbytes.optim.adamw.AdamW8bit'>
+[2025-06-27 09:39:24,535] [WARNING] [engine.py:1179:_do_optimizer_sanity_check] **** You are using ZeRO with an untested optimizer, proceed with caution *****
+[2025-06-27 09:39:24,536] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.float16 ZeRO stage 2 optimizer
+[2025-06-27 09:39:24,539] [INFO] [stage_1_and_2.py:148:__init__] Reduce bucket size 200000000
+[2025-06-27 09:39:24,540] [INFO] [stage_1_and_2.py:149:__init__] Allgather bucket size 200000000
+[2025-06-27 09:39:24,540] [INFO] [stage_1_and_2.py:150:__init__] CPU Offload: False
+[2025-06-27 09:39:24,541] [INFO] [stage_1_and_2.py:151:__init__] Round robin gradient partitioning: False
+[2025-06-27 09:39:30,499] [INFO] [utils.py:781:see_memory_usage] Before initializing optimizer states
+[2025-06-27 09:39:30,503] [INFO] [utils.py:782:see_memory_usage] MA 6.15 GB         Max_MA 6.95 GB         CA 7.91 GB         Max_CA 8 GB 
+[2025-06-27 09:39:30,504] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 114.02 GB, percent = 12.1%
+[2025-06-27 09:39:30,730] [INFO] [utils.py:781:see_memory_usage] After initializing optimizer states
+[2025-06-27 09:39:30,734] [INFO] [utils.py:782:see_memory_usage] MA 6.15 GB         Max_MA 7.74 GB         CA 9.5 GB         Max_CA 10 GB 
+[2025-06-27 09:39:30,737] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 112.74 GB, percent = 11.9%
+[2025-06-27 09:39:30,737] [INFO] [stage_1_and_2.py:543:__init__] optimizer state initialized
+[2025-06-27 09:39:30,971] [INFO] [utils.py:781:see_memory_usage] After initializing ZeRO optimizer
+[2025-06-27 09:39:30,974] [INFO] [utils.py:782:see_memory_usage] MA 6.15 GB         Max_MA 6.15 GB         CA 9.5 GB         Max_CA 10 GB 
+[2025-06-27 09:39:30,975] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 112.82 GB, percent = 11.9%
+[2025-06-27 09:39:30,981] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedZeroOptimizer
+[2025-06-27 09:39:30,981] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2025-06-27 09:39:30,985] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2025-06-27 09:39:30,986] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[1e-06], mom=[(0.9, 0.999)]
+[2025-06-27 09:39:30,990] [INFO] [config.py:997:print] DeepSpeedEngine configuration:
+[2025-06-27 09:39:30,993] [INFO] [config.py:1001:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2025-06-27 09:39:30,995] [INFO] [config.py:1001:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2025-06-27 09:39:30,996] [INFO] [config.py:1001:print]   amp_enabled .................. False
+[2025-06-27 09:39:30,997] [INFO] [config.py:1001:print]   amp_params ................... False
+[2025-06-27 09:39:30,999] [INFO] [config.py:1001:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-06-27 09:39:31,000] [INFO] [config.py:1001:print]   bfloat16_enabled ............. False
+[2025-06-27 09:39:31,002] [INFO] [config.py:1001:print]   bfloat16_immediate_grad_update  False
+[2025-06-27 09:39:31,003] [INFO] [config.py:1001:print]   checkpoint_parallel_write_pipeline  False
+[2025-06-27 09:39:31,004] [INFO] [config.py:1001:print]   checkpoint_tag_validation_enabled  True
+[2025-06-27 09:39:31,005] [INFO] [config.py:1001:print]   checkpoint_tag_validation_fail  False
+[2025-06-27 09:39:31,006] [INFO] [config.py:1001:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x5ca14505f30>
+[2025-06-27 09:39:31,006] [INFO] [config.py:1001:print]   communication_data_type ...... None
+[2025-06-27 09:39:31,007] [INFO] [config.py:1001:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-06-27 09:39:31,008] [INFO] [config.py:1001:print]   curriculum_enabled_legacy .... False
+[2025-06-27 09:39:31,012] [INFO] [config.py:1001:print]   curriculum_params_legacy ..... False
+[2025-06-27 09:39:31,012] [INFO] [config.py:1001:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-06-27 09:39:31,015] [INFO] [config.py:1001:print]   data_efficiency_enabled ...... False
+[2025-06-27 09:39:31,022] [INFO] [config.py:1001:print]   dataloader_drop_last ......... False
+[2025-06-27 09:39:31,024] [INFO] [config.py:1001:print]   disable_allgather ............ False
+[2025-06-27 09:39:31,025] [INFO] [config.py:1001:print]   dump_state ................... False
+[2025-06-27 09:39:31,025] [INFO] [config.py:1001:print]   dynamic_loss_scale_args ...... {'init_scale': 65536, 'scale_window': 1000, 'delayed_shift': 2, 'consecutive_hysteresis': False, 'min_scale': 1}
+[2025-06-27 09:39:31,026] [INFO] [config.py:1001:print]   eigenvalue_enabled ........... False
+[2025-06-27 09:39:31,026] [INFO] [config.py:1001:print]   eigenvalue_gas_boundary_resolution  1
+[2025-06-27 09:39:31,026] [INFO] [config.py:1001:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-06-27 09:39:31,027] [INFO] [config.py:1001:print]   eigenvalue_layer_num ......... 0
+[2025-06-27 09:39:31,027] [INFO] [config.py:1001:print]   eigenvalue_max_iter .......... 100
+[2025-06-27 09:39:31,028] [INFO] [config.py:1001:print]   eigenvalue_stability ......... 1e-06
+[2025-06-27 09:39:31,028] [INFO] [config.py:1001:print]   eigenvalue_tol ............... 0.01
+[2025-06-27 09:39:31,028] [INFO] [config.py:1001:print]   eigenvalue_verbose ........... False
+[2025-06-27 09:39:31,029] [INFO] [config.py:1001:print]   elasticity_enabled ........... False
+[2025-06-27 09:39:31,029] [INFO] [config.py:1001:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2025-06-27 09:39:31,031] [INFO] [config.py:1001:print]   fp16_auto_cast ............... False
+[2025-06-27 09:39:31,033] [INFO] [config.py:1001:print]   fp16_enabled ................. True
+[2025-06-27 09:39:31,034] [INFO] [config.py:1001:print]   fp16_master_weights_and_gradients  False
+[2025-06-27 09:39:31,034] [INFO] [config.py:1001:print]   global_rank .................. 0
+[2025-06-27 09:39:31,034] [INFO] [config.py:1001:print]   grad_accum_dtype ............. None
+[2025-06-27 09:39:31,035] [INFO] [config.py:1001:print]   gradient_accumulation_steps .. 1
+[2025-06-27 09:39:31,035] [INFO] [config.py:1001:print]   gradient_clipping ............ 1.0
+[2025-06-27 09:39:31,036] [INFO] [config.py:1001:print]   gradient_predivide_factor .... 1.0
+[2025-06-27 09:39:31,036] [INFO] [config.py:1001:print]   graph_harvesting ............. False
+[2025-06-27 09:39:31,036] [INFO] [config.py:1001:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-06-27 09:39:31,037] [INFO] [config.py:1001:print]   initial_dynamic_scale ........ 65536
+[2025-06-27 09:39:31,043] [INFO] [config.py:1001:print]   load_universal_checkpoint .... False
+[2025-06-27 09:39:31,045] [INFO] [config.py:1001:print]   loss_scale ................... 0
+[2025-06-27 09:39:31,045] [INFO] [config.py:1001:print]   memory_breakdown ............. False
+[2025-06-27 09:39:31,046] [INFO] [config.py:1001:print]   mics_hierarchial_params_gather  False
+[2025-06-27 09:39:31,046] [INFO] [config.py:1001:print]   mics_shard_size .............. -1
+[2025-06-27 09:39:31,047] [INFO] [config.py:1001:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, experiment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2025-06-27 09:39:31,047] [INFO] [config.py:1001:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2025-06-27 09:39:31,048] [INFO] [config.py:1001:print]   optimizer_legacy_fusion ...... False
+[2025-06-27 09:39:31,048] [INFO] [config.py:1001:print]   optimizer_name ............... None
+[2025-06-27 09:39:31,053] [INFO] [config.py:1001:print]   optimizer_params ............. None
+[2025-06-27 09:39:31,053] [INFO] [config.py:1001:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2025-06-27 09:39:31,054] [INFO] [config.py:1001:print]   pld_enabled .................. False
+[2025-06-27 09:39:31,054] [INFO] [config.py:1001:print]   pld_params ................... False
+[2025-06-27 09:39:31,055] [INFO] [config.py:1001:print]   prescale_gradients ........... False
+[2025-06-27 09:39:31,055] [INFO] [config.py:1001:print]   scheduler_name ............... None
+[2025-06-27 09:39:31,056] [INFO] [config.py:1001:print]   scheduler_params ............. None
+[2025-06-27 09:39:31,056] [INFO] [config.py:1001:print]   seq_parallel_communication_data_type  torch.float32
+[2025-06-27 09:39:31,057] [INFO] [config.py:1001:print]   sparse_attention ............. None
+[2025-06-27 09:39:31,057] [INFO] [config.py:1001:print]   sparse_gradients_enabled ..... False
+[2025-06-27 09:39:31,058] [INFO] [config.py:1001:print]   steps_per_print .............. inf
+[2025-06-27 09:39:31,058] [INFO] [config.py:1001:print]   timers_config ................ enabled=True synchronized=True
+[2025-06-27 09:39:31,058] [INFO] [config.py:1001:print]   train_batch_size ............. 32
+[2025-06-27 09:39:31,059] [INFO] [config.py:1001:print]   train_micro_batch_size_per_gpu  8
+[2025-06-27 09:39:31,059] [INFO] [config.py:1001:print]   use_data_before_expert_parallel_  False
+[2025-06-27 09:39:31,062] [INFO] [config.py:1001:print]   use_node_local_storage ....... False
+[2025-06-27 09:39:31,063] [INFO] [config.py:1001:print]   wall_clock_breakdown ......... False
+[2025-06-27 09:39:31,063] [INFO] [config.py:1001:print]   weight_quantization_config ... None
+[2025-06-27 09:39:31,064] [INFO] [config.py:1001:print]   world_size ................... 4
+[2025-06-27 09:39:31,064] [INFO] [config.py:1001:print]   zero_allow_untested_optimizer  True
+[2025-06-27 09:39:31,066] [INFO] [config.py:1001:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=200000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=200000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=None sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False use_all_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2025-06-27 09:39:31,073] [INFO] [config.py:1001:print]   zero_enabled ................. True
+[2025-06-27 09:39:31,074] [INFO] [config.py:1001:print]   zero_force_ds_cpu_optimizer .. True
+[2025-06-27 09:39:31,074] [INFO] [config.py:1001:print]   zero_optimization_stage ...... 2
+[2025-06-27 09:39:31,075] [INFO] [config.py:987:print_user_config]   json = {
+    "fp16": {
+        "enabled": true, 
+        "loss_scale": 0, 
+        "loss_scale_window": 1000, 
+        "initial_scale_power": 16, 
+        "hysteresis": 2, 
+        "min_loss_scale": 1
+    }, 
+    "bf16": {
+        "enabled": false
+    }, 
+    "zero_optimization": {
+        "stage": 2, 
+        "allgather_partitions": true, 
+        "allgather_bucket_size": 2.000000e+08, 
+        "overlap_comm": true, 
+        "reduce_scatter": true, 
+        "reduce_bucket_size": 2.000000e+08, 
+        "contiguous_gradients": true
+    }, 
+    "gradient_accumulation_steps": 1, 
+    "gradient_clipping": 1.0, 
+    "steps_per_print": inf, 
+    "train_batch_size": 32, 
+    "train_micro_batch_size_per_gpu": 8, 
+    "wall_clock_breakdown": false, 
+    "zero_allow_untested_optimizer": true
+}
+06/27/2025 09:39:32 - INFO - __main__ - ***** Running training *****
+06/27/2025 09:39:32 - INFO - __main__ -   Num examples = 114255
+06/27/2025 09:39:32 - INFO - __main__ -   Num Epochs = 33
+06/27/2025 09:39:32 - INFO - __main__ -   Instantaneous batch size per device = 8
+06/27/2025 09:39:32 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 32
+06/27/2025 09:39:32 - INFO - __main__ -   Gradient Accumulation steps = 1
+06/27/2025 09:39:32 - INFO - __main__ -   Total optimization steps = 115200
+06/27/2025 09:39:32 - INFO - __main__ - #parameters of ReferenceNet is 859.520 M (840.710 M is trainable).
+06/27/2025 09:39:32 - INFO - __main__ - #parameters of Denoising U-Net is 1362.329 M (865.132 M is trainable).
+06/27/2025 09:39:32 - INFO - __main__ - #parameters of V-Kps Guider is 1.086 M (1.086 M is trainable).
+06/27/2025 09:39:32 - INFO - __main__ - #parameters of Audio Projection is 29.524 M (0.000 M is trainable).
+  0%|          | 0/115200 [00:00<?, ?it/s]stage_1-0627_0936, Steps:   0%|          | 0/115200 [00:00<?, ?it/s]stage_1-0627_0936, Steps:   0%|          | 1/115200 [00:13<417:52:52, 13.06s/it]stage_1-0627_0936, Steps:   0%|          | 1/115200 [00:13<417:52:52, 13.06s/it, lr=1e-6, step_loss=0.562, td=6.13s]06/27/2025 09:39:46 - INFO - accelerate.accelerator - Saving current state to ./exp_output-160h/stage_1-0627_0936/checkpoint-1
+06/27/2025 09:39:46 - INFO - accelerate.accelerator - Saving DeepSpeed Model and Optimizer
+[2025-06-27 09:39:46,128] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint pytorch_model is about to be saved!
+[2025-06-27 09:39:47,408] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/mp_rank_00_model_states.pt
+[2025-06-27 09:39:47,626] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/mp_rank_00_model_states.pt...
+[2025-06-27 09:40:03,024] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/mp_rank_00_model_states.pt.
+[2025-06-27 09:40:03,036] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2025-06-27 09:40:03,036] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2025-06-27 09:40:03,036] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/zero_pp_rank_2_mp_rank_00_optim_states.pt...
+[2025-06-27 09:40:03,036] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/zero_pp_rank_3_mp_rank_00_optim_states.pt...
+[2025-06-27 09:40:11,813] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2025-06-27 09:40:13,144] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/zero_pp_rank_2_mp_rank_00_optim_states.pt.
+[2025-06-27 09:40:13,144] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/zero_pp_rank_3_mp_rank_00_optim_states.pt.
+[2025-06-27 09:40:13,189] [INFO] [engine.py:3478:_save_zero_checkpoint] zero checkpoint saved ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2025-06-27 09:40:13,190] [INFO] [engine.py:3478:_save_zero_checkpoint] zero checkpoint saved ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/zero_pp_rank_2_mp_rank_00_optim_states.pt
+[2025-06-27 09:40:13,192] [INFO] [engine.py:3478:_save_zero_checkpoint] zero checkpoint saved ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/zero_pp_rank_3_mp_rank_00_optim_states.pt
+[2025-06-27 09:40:13,194] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint pytorch_model is ready now!
+[2025-06-27 09:40:13,196] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint pytorch_model is ready now!
+[2025-06-27 09:40:13,198] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint pytorch_model is ready now!
+[2025-06-27 09:40:13,641] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2025-06-27 09:40:13,659] [INFO] [engine.py:3478:_save_zero_checkpoint] zero checkpoint saved ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model/zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2025-06-27 09:40:13,661] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint pytorch_model is ready now!
+06/27/2025 09:40:13 - INFO - accelerate.accelerator - DeepSpeed Model and Optimizer saved to output dir ./exp_output-160h/stage_1-0627_0936/checkpoint-1/pytorch_model
+06/27/2025 09:40:13 - INFO - accelerate.checkpointing - Scheduler state saved in exp_output-160h/stage_1-0627_0936/checkpoint-1/scheduler.bin
+06/27/2025 09:40:13 - INFO - accelerate.checkpointing - Sampler state for dataloader 0 saved in exp_output-160h/stage_1-0627_0936/checkpoint-1/sampler.bin
+06/27/2025 09:40:13 - INFO - accelerate.checkpointing - Random states saved in exp_output-160h/stage_1-0627_0936/checkpoint-1/random_states_0.pkl
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: ./model_ckpts/insightface_models/models/buffalo_l/2d106det.onnx landmark_2d_106 ['None', 3, 192, 192] 0.0 1.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: ./model_ckpts/insightface_models/models/buffalo_l/det_10g.onnx detection [1, 3, '?', '?'] 127.5 128.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: ./model_ckpts/insightface_models/models/buffalo_l/genderage.onnx genderage ['None', 3, 96, 96] 0.0 1.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: ./model_ckpts/insightface_models/models/buffalo_l/w600k_r50.onnx recognition ['None', 3, 112, 112] 127.5 127.5
+set det-size: (512, 512)
+Length of audio is 73728 with the sampling rate of 16000.
+The corresponding video length is 104, fps is 22.57.
+
+  0%|          | 0/25 [00:00<?, ?it/s][A
+Denoising Step Index: 1 / 25, Context Index: 1 / 5:   0%|          | 0/25 [00:00<?, ?it/s][A
+Denoising Step Index: 1 / 25, Context Index: 2 / 5:   0%|          | 0/25 [00:01<?, ?it/s][A
+Denoising Step Index: 1 / 25, Context Index: 3 / 5:   0%|          | 0/25 [00:01<?, ?it/s][A
+Denoising Step Index: 1 / 25, Context Index: 4 / 5:   0%|          | 0/25 [00:02<?, ?it/s][A
+Denoising Step Index: 1 / 25, Context Index: 5 / 5:   0%|          | 0/25 [00:02<?, ?it/s][A
+Denoising Step Index: 1 / 25, Context Index: 5 / 5:   4%|▍         | 1/25 [00:02<01:07,  2.83s/it][A
+Denoising Step Index: 2 / 25, Context Index: 1 / 5:   4%|▍         | 1/25 [00:03<01:07,  2.83s/it][A
+Denoising Step Index: 2 / 25, Context Index: 2 / 5:   4%|▍         | 1/25 [00:03<01:07,  2.83s/it][A
+Denoising Step Index: 2 / 25, Context Index: 3 / 5:   4%|▍         | 1/25 [00:04<01:07,  2.83s/it][A
+Denoising Step Index: 2 / 25, Context Index: 4 / 5:   4%|▍         | 1/25 [00:05<01:07,  2.83s/it][A
+Denoising Step Index: 2 / 25, Context Index: 5 / 5:   4%|▍         | 1/25 [00:05<01:07,  2.83s/it][A
+Denoising Step Index: 2 / 25, Context Index: 5 / 5:   8%|▊         | 2/25 [00:05<01:04,  2.81s/it][A
+Denoising Step Index: 3 / 25, Context Index: 1 / 5:   8%|▊         | 2/25 [00:06<01:04,  2.81s/it][A
+Denoising Step Index: 3 / 25, Context Index: 2 / 5:   8%|▊         | 2/25 [00:06<01:04,  2.81s/it][A
+Denoising Step Index: 3 / 25, Context Index: 3 / 5:   8%|▊         | 2/25 [00:07<01:04,  2.81s/it][A
+Denoising Step Index: 3 / 25, Context Index: 4 / 5:   8%|▊         | 2/25 [00:07<01:04,  2.81s/it][A
+Denoising Step Index: 3 / 25, Context Index: 5 / 5:   8%|▊         | 2/25 [00:08<01:04,  2.81s/it][A
+Denoising Step Index: 3 / 25, Context Index: 5 / 5:  12%|█▏        | 3/25 [00:08<01:01,  2.81s/it][A
+Denoising Step Index: 4 / 25, Context Index: 1 / 5:  12%|█▏        | 3/25 [00:08<01:01,  2.81s/it][A
+Denoising Step Index: 4 / 25, Context Index: 2 / 5:  12%|█▏        | 3/25 [00:09<01:01,  2.81s/it][A
+Denoising Step Index: 4 / 25, Context Index: 3 / 5:  12%|█▏        | 3/25 [00:10<01:01,  2.81s/it][A
+Denoising Step Index: 4 / 25, Context Index: 4 / 5:  12%|█▏        | 3/25 [00:10<01:01,  2.81s/it][A
+Denoising Step Index: 4 / 25, Context Index: 5 / 5:  12%|█▏        | 3/25 [00:11<01:01,  2.81s/it][A
+Denoising Step Index: 4 / 25, Context Index: 5 / 5:  16%|█▌        | 4/25 [00:11<00:58,  2.81s/it][A
+Denoising Step Index: 5 / 25, Context Index: 1 / 5:  16%|█▌        | 4/25 [00:11<00:58,  2.81s/it][A
+Denoising Step Index: 5 / 25, Context Index: 2 / 5:  16%|█▌        | 4/25 [00:12<00:58,  2.81s/it][A
+Denoising Step Index: 5 / 25, Context Index: 3 / 5:  16%|█▌        | 4/25 [00:12<00:58,  2.81s/it][A
+Denoising Step Index: 5 / 25, Context Index: 4 / 5:  16%|█▌        | 4/25 [00:13<00:58,  2.81s/it][A
+Denoising Step Index: 5 / 25, Context Index: 5 / 5:  16%|█▌        | 4/25 [00:14<00:58,  2.81s/it][A
+Denoising Step Index: 5 / 25, Context Index: 5 / 5:  20%|██        | 5/25 [00:14<00:56,  2.80s/it][A
+Denoising Step Index: 6 / 25, Context Index: 1 / 5:  20%|██        | 5/25 [00:14<00:56,  2.80s/it][A
+Denoising Step Index: 6 / 25, Context Index: 2 / 5:  20%|██        | 5/25 [00:15<00:56,  2.80s/it][A
+Denoising Step Index: 6 / 25, Context Index: 3 / 5:  20%|██        | 5/25 [00:15<00:56,  2.80s/it][A
+Denoising Step Index: 6 / 25, Context Index: 4 / 5:  20%|██        | 5/25 [00:16<00:56,  2.80s/it][A
+Denoising Step Index: 6 / 25, Context Index: 5 / 5:  20%|██        | 5/25 [00:16<00:56,  2.80s/it][A
+Denoising Step Index: 6 / 25, Context Index: 5 / 5:  24%|██▍       | 6/25 [00:16<00:53,  2.80s/it][A
+Denoising Step Index: 7 / 25, Context Index: 1 / 5:  24%|██▍       | 6/25 [00:17<00:53,  2.80s/it][A
+Denoising Step Index: 7 / 25, Context Index: 2 / 5:  24%|██▍       | 6/25 [00:17<00:53,  2.80s/it][A
+Denoising Step Index: 7 / 25, Context Index: 3 / 5:  24%|██▍       | 6/25 [00:18<00:53,  2.80s/it][A
+Denoising Step Index: 7 / 25, Context Index: 4 / 5:  24%|██▍       | 6/25 [00:19<00:53,  2.80s/it][A
+Denoising Step Index: 7 / 25, Context Index: 5 / 5:  24%|██▍       | 6/25 [00:19<00:53,  2.80s/it][A
+Denoising Step Index: 7 / 25, Context Index: 5 / 5:  28%|██▊       | 7/25 [00:19<00:50,  2.81s/it][A
+Denoising Step Index: 8 / 25, Context Index: 1 / 5:  28%|██▊       | 7/25 [00:20<00:50,  2.81s/it][A
+Denoising Step Index: 8 / 25, Context Index: 2 / 5:  28%|██▊       | 7/25 [00:20<00:50,  2.81s/it][A
+Denoising Step Index: 8 / 25, Context Index: 3 / 5:  28%|██▊       | 7/25 [00:21<00:50,  2.81s/it][A
+Denoising Step Index: 8 / 25, Context Index: 4 / 5:  28%|██▊       | 7/25 [00:21<00:50,  2.81s/it][A
+Denoising Step Index: 8 / 25, Context Index: 5 / 5:  28%|██▊       | 7/25 [00:22<00:50,  2.81s/it][A
+Denoising Step Index: 8 / 25, Context Index: 5 / 5:  32%|███▏      | 8/25 [00:22<00:47,  2.80s/it][A
+Denoising Step Index: 9 / 25, Context Index: 1 / 5:  32%|███▏      | 8/25 [00:22<00:47,  2.80s/it][A
+Denoising Step Index: 9 / 25, Context Index: 2 / 5:  32%|███▏      | 8/25 [00:23<00:47,  2.80s/it][A
+Denoising Step Index: 9 / 25, Context Index: 3 / 5:  32%|███▏      | 8/25 [00:24<00:47,  2.80s/it][A
+Denoising Step Index: 9 / 25, Context Index: 4 / 5:  32%|███▏      | 8/25 [00:24<00:47,  2.80s/it][A
+Denoising Step Index: 9 / 25, Context Index: 5 / 5:  32%|███▏      | 8/25 [00:25<00:47,  2.80s/it][A
+Denoising Step Index: 9 / 25, Context Index: 5 / 5:  36%|███▌      | 9/25 [00:25<00:44,  2.79s/it][A
+Denoising Step Index: 10 / 25, Context Index: 1 / 5:  36%|███▌      | 9/25 [00:25<00:44,  2.79s/it][A
+Denoising Step Index: 10 / 25, Context Index: 2 / 5:  36%|███▌      | 9/25 [00:26<00:44,  2.79s/it][A
+Denoising Step Index: 10 / 25, Context Index: 3 / 5:  36%|███▌      | 9/25 [00:26<00:44,  2.79s/it][A
+Denoising Step Index: 10 / 25, Context Index: 4 / 5:  36%|███▌      | 9/25 [00:27<00:44,  2.79s/it][A
+Denoising Step Index: 10 / 25, Context Index: 5 / 5:  36%|███▌      | 9/25 [00:27<00:44,  2.79s/it][A
+Denoising Step Index: 10 / 25, Context Index: 5 / 5:  40%|████      | 10/25 [00:27<00:41,  2.79s/it][A
+Denoising Step Index: 11 / 25, Context Index: 1 / 5:  40%|████      | 10/25 [00:28<00:41,  2.79s/it][A
+Denoising Step Index: 11 / 25, Context Index: 2 / 5:  40%|████      | 10/25 [00:29<00:41,  2.79s/it][A
+Denoising Step Index: 11 / 25, Context Index: 3 / 5:  40%|████      | 10/25 [00:29<00:41,  2.79s/it][A
+Denoising Step Index: 11 / 25, Context Index: 4 / 5:  40%|████      | 10/25 [00:30<00:41,  2.79s/it][A
+Denoising Step Index: 11 / 25, Context Index: 5 / 5:  40%|████      | 10/25 [00:30<00:41,  2.79s/it][A
+Denoising Step Index: 11 / 25, Context Index: 5 / 5:  44%|████▍     | 11/25 [00:30<00:38,  2.78s/it][A
+Denoising Step Index: 12 / 25, Context Index: 1 / 5:  44%|████▍     | 11/25 [00:31<00:38,  2.78s/it][A
+Denoising Step Index: 12 / 25, Context Index: 2 / 5:  44%|████▍     | 11/25 [00:31<00:38,  2.78s/it][A
+Denoising Step Index: 12 / 25, Context Index: 3 / 5:  44%|████▍     | 11/25 [00:32<00:38,  2.78s/it][A
+Denoising Step Index: 12 / 25, Context Index: 4 / 5:  44%|████▍     | 11/25 [00:32<00:38,  2.78s/it][A
+Denoising Step Index: 12 / 25, Context Index: 5 / 5:  44%|████▍     | 11/25 [00:33<00:38,  2.78s/it][A
+Denoising Step Index: 12 / 25, Context Index: 5 / 5:  48%|████▊     | 12/25 [00:33<00:36,  2.78s/it][A
+Denoising Step Index: 13 / 25, Context Index: 1 / 5:  48%|████▊     | 12/25 [00:34<00:36,  2.78s/it][A
+Denoising Step Index: 13 / 25, Context Index: 2 / 5:  48%|████▊     | 12/25 [00:34<00:36,  2.78s/it][A
+Denoising Step Index: 13 / 25, Context Index: 3 / 5:  48%|████▊     | 12/25 [00:35<00:36,  2.78s/it][A
+Denoising Step Index: 13 / 25, Context Index: 4 / 5:  48%|████▊     | 12/25 [00:35<00:36,  2.78s/it][A
+Denoising Step Index: 13 / 25, Context Index: 5 / 5:  48%|████▊     | 12/25 [00:36<00:36,  2.78s/it][A
+Denoising Step Index: 13 / 25, Context Index: 5 / 5:  52%|█████▏    | 13/25 [00:36<00:33,  2.78s/it][A
+Denoising Step Index: 14 / 25, Context Index: 1 / 5:  52%|█████▏    | 13/25 [00:36<00:33,  2.78s/it][A
+Denoising Step Index: 14 / 25, Context Index: 2 / 5:  52%|█████▏    | 13/25 [00:37<00:33,  2.78s/it][A
+Denoising Step Index: 14 / 25, Context Index: 3 / 5:  52%|█████▏    | 13/25 [00:37<00:33,  2.78s/it][A
+Denoising Step Index: 14 / 25, Context Index: 4 / 5:  52%|█████▏    | 13/25 [00:38<00:33,  2.78s/it][A
+Denoising Step Index: 14 / 25, Context Index: 5 / 5:  52%|█████▏    | 13/25 [00:39<00:33,  2.78s/it][A
+Denoising Step Index: 14 / 25, Context Index: 5 / 5:  56%|█████▌    | 14/25 [00:39<00:30,  2.77s/it][A
+Denoising Step Index: 15 / 25, Context Index: 1 / 5:  56%|█████▌    | 14/25 [00:39<00:30,  2.77s/it][A
+Denoising Step Index: 15 / 25, Context Index: 2 / 5:  56%|█████▌    | 14/25 [00:40<00:30,  2.77s/it][A
+Denoising Step Index: 15 / 25, Context Index: 3 / 5:  56%|█████▌    | 14/25 [00:40<00:30,  2.77s/it][A
+Denoising Step Index: 15 / 25, Context Index: 4 / 5:  56%|█████▌    | 14/25 [00:41<00:30,  2.77s/it][A
+Denoising Step Index: 15 / 25, Context Index: 5 / 5:  56%|█████▌    | 14/25 [00:41<00:30,  2.77s/it][A
+Denoising Step Index: 15 / 25, Context Index: 5 / 5:  60%|██████    | 15/25 [00:41<00:27,  2.77s/it][A
+Denoising Step Index: 16 / 25, Context Index: 1 / 5:  60%|██████    | 15/25 [00:42<00:27,  2.77s/it][A
+Denoising Step Index: 16 / 25, Context Index: 2 / 5:  60%|██████    | 15/25 [00:42<00:27,  2.77s/it][A
+Denoising Step Index: 16 / 25, Context Index: 3 / 5:  60%|██████    | 15/25 [00:43<00:27,  2.77s/it][A
+Denoising Step Index: 16 / 25, Context Index: 4 / 5:  60%|██████    | 15/25 [00:44<00:27,  2.77s/it][A
+Denoising Step Index: 16 / 25, Context Index: 5 / 5:  60%|██████    | 15/25 [00:44<00:27,  2.77s/it][A
+Denoising Step Index: 16 / 25, Context Index: 5 / 5:  64%|██████▍   | 16/25 [00:44<00:24,  2.77s/it][A
+Denoising Step Index: 17 / 25, Context Index: 1 / 5:  64%|██████▍   | 16/25 [00:45<00:24,  2.77s/it][A
+Denoising Step Index: 17 / 25, Context Index: 2 / 5:  64%|██████▍   | 16/25 [00:45<00:24,  2.77s/it][A
+Denoising Step Index: 17 / 25, Context Index: 3 / 5:  64%|██████▍   | 16/25 [00:46<00:24,  2.77s/it][A
+Denoising Step Index: 17 / 25, Context Index: 4 / 5:  64%|██████▍   | 16/25 [00:46<00:24,  2.77s/it][A
+Denoising Step Index: 17 / 25, Context Index: 5 / 5:  64%|██████▍   | 16/25 [00:47<00:24,  2.77s/it][A
+Denoising Step Index: 17 / 25, Context Index: 5 / 5:  68%|██████▊   | 17/25 [00:47<00:22,  2.77s/it][A
+Denoising Step Index: 18 / 25, Context Index: 1 / 5:  68%|██████▊   | 17/25 [00:47<00:22,  2.77s/it][A
+Denoising Step Index: 18 / 25, Context Index: 2 / 5:  68%|██████▊   | 17/25 [00:48<00:22,  2.77s/it][A
+Denoising Step Index: 18 / 25, Context Index: 3 / 5:  68%|██████▊   | 17/25 [00:49<00:22,  2.77s/it][A
+Denoising Step Index: 18 / 25, Context Index: 4 / 5:  68%|██████▊   | 17/25 [00:49<00:22,  2.77s/it][A
+Denoising Step Index: 18 / 25, Context Index: 5 / 5:  68%|██████▊   | 17/25 [00:50<00:22,  2.77s/it][A
+Denoising Step Index: 18 / 25, Context Index: 5 / 5:  72%|███████▏  | 18/25 [00:50<00:19,  2.77s/it][A
+Denoising Step Index: 19 / 25, Context Index: 1 / 5:  72%|███████▏  | 18/25 [00:50<00:19,  2.77s/it][A
+Denoising Step Index: 19 / 25, Context Index: 2 / 5:  72%|███████▏  | 18/25 [00:51<00:19,  2.77s/it][A
+Denoising Step Index: 19 / 25, Context Index: 3 / 5:  72%|███████▏  | 18/25 [00:51<00:19,  2.77s/it][A
+Denoising Step Index: 19 / 25, Context Index: 4 / 5:  72%|███████▏  | 18/25 [00:52<00:19,  2.77s/it][A
+Denoising Step Index: 19 / 25, Context Index: 5 / 5:  72%|███████▏  | 18/25 [00:52<00:19,  2.77s/it][A
+Denoising Step Index: 19 / 25, Context Index: 5 / 5:  76%|███████▌  | 19/25 [00:52<00:16,  2.78s/it][A
+Denoising Step Index: 20 / 25, Context Index: 1 / 5:  76%|███████▌  | 19/25 [00:53<00:16,  2.78s/it][A
+Denoising Step Index: 20 / 25, Context Index: 2 / 5:  76%|███████▌  | 19/25 [00:54<00:16,  2.78s/it][A
+Denoising Step Index: 20 / 25, Context Index: 3 / 5:  76%|███████▌  | 19/25 [00:54<00:16,  2.78s/it][A
+Denoising Step Index: 20 / 25, Context Index: 4 / 5:  76%|███████▌  | 19/25 [00:55<00:16,  2.78s/it][A
+Denoising Step Index: 20 / 25, Context Index: 5 / 5:  76%|███████▌  | 19/25 [00:55<00:16,  2.78s/it][A
+Denoising Step Index: 20 / 25, Context Index: 5 / 5:  80%|████████  | 20/25 [00:55<00:13,  2.78s/it][A
+Denoising Step Index: 21 / 25, Context Index: 1 / 5:  80%|████████  | 20/25 [00:56<00:13,  2.78s/it][A
+Denoising Step Index: 21 / 25, Context Index: 2 / 5:  80%|████████  | 20/25 [00:56<00:13,  2.78s/it][A
+Denoising Step Index: 21 / 25, Context Index: 3 / 5:  80%|████████  | 20/25 [00:57<00:13,  2.78s/it][A
+Denoising Step Index: 21 / 25, Context Index: 4 / 5:  80%|████████  | 20/25 [00:57<00:13,  2.78s/it][A
+Denoising Step Index: 21 / 25, Context Index: 5 / 5:  80%|████████  | 20/25 [00:58<00:13,  2.78s/it][A
+Denoising Step Index: 21 / 25, Context Index: 5 / 5:  84%|████████▍ | 21/25 [00:58<00:11,  2.78s/it][A
+Denoising Step Index: 22 / 25, Context Index: 1 / 5:  84%|████████▍ | 21/25 [00:59<00:11,  2.78s/it][A
+Denoising Step Index: 22 / 25, Context Index: 2 / 5:  84%|████████▍ | 21/25 [00:59<00:11,  2.78s/it][A
+Denoising Step Index: 22 / 25, Context Index: 3 / 5:  84%|████████▍ | 21/25 [01:00<00:11,  2.78s/it][A
+Denoising Step Index: 22 / 25, Context Index: 4 / 5:  84%|████████▍ | 21/25 [01:00<00:11,  2.78s/it][A
+Denoising Step Index: 22 / 25, Context Index: 5 / 5:  84%|████████▍ | 21/25 [01:01<00:11,  2.78s/it][A
+Denoising Step Index: 22 / 25, Context Index: 5 / 5:  88%|████████▊ | 22/25 [01:01<00:08,  2.80s/it][A
+Denoising Step Index: 23 / 25, Context Index: 1 / 5:  88%|████████▊ | 22/25 [01:01<00:08,  2.80s/it][A
+Denoising Step Index: 23 / 25, Context Index: 2 / 5:  88%|████████▊ | 22/25 [01:02<00:08,  2.80s/it][A
+Denoising Step Index: 23 / 25, Context Index: 3 / 5:  88%|████████▊ | 22/25 [01:02<00:08,  2.80s/it][A
+Denoising Step Index: 23 / 25, Context Index: 4 / 5:  88%|████████▊ | 22/25 [01:03<00:08,  2.80s/it][A
+Denoising Step Index: 23 / 25, Context Index: 5 / 5:  88%|████████▊ | 22/25 [01:04<00:08,  2.80s/it][A
+Denoising Step Index: 23 / 25, Context Index: 5 / 5:  92%|█████████▏| 23/25 [01:04<00:05,  2.79s/it][A
+Denoising Step Index: 24 / 25, Context Index: 1 / 5:  92%|█████████▏| 23/25 [01:04<00:05,  2.79s/it][A
+Denoising Step Index: 24 / 25, Context Index: 2 / 5:  92%|█████████▏| 23/25 [01:05<00:05,  2.79s/it][A
+Denoising Step Index: 24 / 25, Context Index: 3 / 5:  92%|█████████▏| 23/25 [01:05<00:05,  2.79s/it][A
+Denoising Step Index: 24 / 25, Context Index: 4 / 5:  92%|█████████▏| 23/25 [01:06<00:05,  2.79s/it][A
+Denoising Step Index: 24 / 25, Context Index: 5 / 5:  92%|█████████▏| 23/25 [01:06<00:05,  2.79s/it][A
+Denoising Step Index: 24 / 25, Context Index: 5 / 5:  96%|█████████▌| 24/25 [01:06<00:02,  2.78s/it][A
+Denoising Step Index: 25 / 25, Context Index: 1 / 5:  96%|█████████▌| 24/25 [01:07<00:02,  2.78s/it][A
+Denoising Step Index: 25 / 25, Context Index: 2 / 5:  96%|█████████▌| 24/25 [01:07<00:02,  2.78s/it][A
+Denoising Step Index: 25 / 25, Context Index: 3 / 5:  96%|█████████▌| 24/25 [01:08<00:02,  2.78s/it][A
+Denoising Step Index: 25 / 25, Context Index: 4 / 5:  96%|█████████▌| 24/25 [01:09<00:02,  2.78s/it][A
+Denoising Step Index: 25 / 25, Context Index: 5 / 5:  96%|█████████▌| 24/25 [01:09<00:02,  2.78s/it][A
+Denoising Step Index: 25 / 25, Context Index: 5 / 5: 100%|██████████| 25/25 [01:09<00:00,  2.78s/it][ADenoising Step Index: 25 / 25, Context Index: 5 / 5: 100%|██████████| 25/25 [01:09<00:00,  2.79s/it]
+
+Decoding latents into frames:   0%|          | 0/104 [00:00<?, ?it/s][A
+Decoding latents into frames:   5%|▍         | 5/104 [00:00<00:02, 40.32it/s][A
+Decoding latents into frames:  10%|▉         | 10/104 [00:00<00:02, 39.71it/s][A
+Decoding latents into frames:  13%|█▎        | 14/104 [00:00<00:02, 39.60it/s][A
+Decoding latents into frames:  17%|█▋        | 18/104 [00:00<00:02, 39.70it/s][A
+Decoding latents into frames:  22%|██▏       | 23/104 [00:00<00:02, 40.04it/s][A
+Decoding latents into frames:  27%|██▋       | 28/104 [00:00<00:01, 39.97it/s][A
+Decoding latents into frames:  31%|███       | 32/104 [00:00<00:01, 39.39it/s][A
+Decoding latents into frames:  36%|███▌      | 37/104 [00:00<00:01, 39.89it/s][A
+Decoding latents into frames:  40%|████      | 42/104 [00:01<00:01, 40.32it/s][A
+Decoding latents into frames:  45%|████▌     | 47/104 [00:01<00:01, 40.53it/s][A
+Decoding latents into frames:  50%|█████     | 52/104 [00:01<00:01, 40.19it/s][A
+Decoding latents into frames:  55%|█████▍    | 57/104 [00:01<00:01, 39.99it/s][A
+Decoding latents into frames:  60%|█████▉    | 62/104 [00:01<00:01, 40.32it/s][A
+Decoding latents into frames:  64%|██████▍   | 67/104 [00:01<00:00, 39.75it/s][A
+Decoding latents into frames:  68%|██████▊   | 71/104 [00:01<00:00, 39.48it/s][A
+Decoding latents into frames:  72%|███████▏  | 75/104 [00:01<00:00, 39.40it/s][A
+Decoding latents into frames:  76%|███████▌  | 79/104 [00:01<00:00, 39.26it/s][A
+Decoding latents into frames:  81%|████████  | 84/104 [00:02<00:00, 40.02it/s][A
+Decoding latents into frames:  85%|████████▍ | 88/104 [00:02<00:00, 39.20it/s][A
+Decoding latents into frames:  88%|████████▊ | 92/104 [00:02<00:00, 38.31it/s][A
+Decoding latents into frames:  92%|█████████▏| 96/104 [00:02<00:00, 38.23it/s][A
+Decoding latents into frames:  97%|█████████▋| 101/104 [00:02<00:00, 39.17it/s][ADecoding latents into frames: 100%|██████████| 104/104 [00:02<00:00, 39.57it/s]
+
+Median Filtering:   0%|          | 0/104 [00:00<?, ?it/s][A
+Median Filtering:  12%|█▎        | 13/104 [00:00<00:00, 126.45it/s][A
+Median Filtering:  32%|███▏      | 33/104 [00:00<00:00, 165.57it/s][A
+Median Filtering:  48%|████▊     | 50/104 [00:00<00:00, 163.06it/s][A
+Median Filtering:  64%|██████▍   | 67/104 [00:00<00:00, 160.79it/s][A
+Median Filtering:  81%|████████  | 84/104 [00:00<00:00, 161.33it/s][A
+Median Filtering:  97%|█████████▋| 101/104 [00:00<00:00, 161.78it/s][AMedian Filtering: 100%|██████████| 104/104 [00:00<00:00, 157.68it/s]
+
+Writing frames into file:   0%|          | 0/104 [00:00<?, ?it/s][A
+Writing frames into file:  12%|█▎        | 13/104 [00:00<00:00, 128.85it/s][A
+Writing frames into file:  36%|███▌      | 37/104 [00:00<00:00, 190.52it/s][A
+Writing frames into file:  61%|██████    | 63/104 [00:00<00:00, 219.69it/s][A
+Writing frames into file:  86%|████████▌ | 89/104 [00:00<00:00, 234.85it/s][AWriting frames into file: 100%|██████████| 104/104 [00:00<00:00, 222.29it/s]
+The generated video has been saved at ./exp_output-160h/stage_1-0627_0936/validation/video-1.mp4. The generation time is 80.1 seconds. The generation FPS is 1.30.
+stage_1-0627_0936, Steps:   0%|          | 2/115200 [02:16<2494:49:42, 77.96s/it, lr=1e-6, step_loss=0.562, td=6.13s]stage_1-0627_0936, Steps:   0%|          | 2/115200 [02:16<2494:49:42, 77.96s/it, lr=1e-6, step_loss=0.443, td=121.98s]stage_1-0627_0936, Steps:   0%|          | 3/115200 [02:17<1374:27:55, 42.95s/it, lr=1e-6, step_loss=0.443, td=121.98s]stage_1-0627_0936, Steps:   0%|          | 3/115200 [02:17<1374:27:55, 42.95s/it, lr=1e-6, step_loss=0.394, td=0.04s]  stage_1-0627_0936, Steps:   0%|          | 4/115200 [02:19<848:06:00, 26.50s/it, lr=1e-6, step_loss=0.394, td=0.04s] stage_1-0627_0936, Steps:   0%|          | 4/115200 [02:19<848:06:00, 26.50s/it, lr=1e-6, step_loss=0.505, td=0.02s]stage_1-0627_0936, Steps:   0%|          | 5/115200 [02:20<556:20:56, 17.39s/it, lr=1e-6, step_loss=0.505, td=0.02s]stage_1-0627_0936, Steps:   0%|          | 5/115200 [02:20<556:20:56, 17.39s/it, lr=1e-6, step_loss=0.373, td=0.02s]stage_1-0627_0936, Steps:   0%|          | 6/115200 [02:21<380:56:17, 11.90s/it, lr=1e-6, step_loss=0.373, td=0.02s]stage_1-0627_0936, Steps:   0%|          | 6/115200 [02:21<380:56:17, 11.90s/it, lr=1e-6, step_loss=0.327, td=0.02s][rank3]:[E627 09:51:55.923553815 ProcessGroupNCCL.cpp:607] [Rank 3] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2177, OpType=ALLREDUCE, NumelIn=198929280, NumelOut=198929280, Timeout(ms)=600000) ran for 600006 milliseconds before timing out.
+[rank3]:[E627 09:51:55.926174445 ProcessGroupNCCL.cpp:1664] [PG 1 Rank 3] Exception (either an error or timeout) detected by watchdog at work: 2177, last enqueued NCCL work: 2180, last completed NCCL work: 2176.
+[rank1]:[E627 09:51:55.969587929 ProcessGroupNCCL.cpp:607] [Rank 1] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2177, OpType=ALLREDUCE, NumelIn=198929280, NumelOut=198929280, Timeout(ms)=600000) ran for 600053 milliseconds before timing out.
+[rank1]:[E627 09:51:55.970061805 ProcessGroupNCCL.cpp:1664] [PG 1 Rank 1] Exception (either an error or timeout) detected by watchdog at work: 2177, last enqueued NCCL work: 2180, last completed NCCL work: 2176.
+[rank0]:[E627 09:51:55.971583761 ProcessGroupNCCL.cpp:607] [Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2177, OpType=ALLREDUCE, NumelIn=198929280, NumelOut=198929280, Timeout(ms)=600000) ran for 600054 milliseconds before timing out.
+[rank0]:[E627 09:51:55.976205979 ProcessGroupNCCL.cpp:1664] [PG 1 Rank 0] Exception (either an error or timeout) detected by watchdog at work: 2177, last enqueued NCCL work: 2180, last completed NCCL work: 2176.
+[rank2]:[E627 09:51:55.067975702 ProcessGroupNCCL.cpp:607] [Rank 2] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2178, OpType=ALLREDUCE, NumelIn=1, NumelOut=1, Timeout(ms)=600000) ran for 600083 milliseconds before timing out.
+[rank2]:[E627 09:51:55.068883805 ProcessGroupNCCL.cpp:1664] [PG 1 Rank 2] Exception (either an error or timeout) detected by watchdog at work: 2178, last enqueued NCCL work: 2178, last completed NCCL work: 2177.
+[rank2]:[E627 09:51:56.718112074 ProcessGroupNCCL.cpp:1709] [PG 1 Rank 2] Timeout at NCCL work: 2178, last enqueued NCCL work: 2178, last completed NCCL work: 2177.
+[rank2]:[E627 09:51:56.718563913 ProcessGroupNCCL.cpp:621] [Rank 2] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank2]:[E627 09:51:56.718878647 ProcessGroupNCCL.cpp:627] [Rank 2] To avoid data inconsistency, we are taking the entire process down.
+[rank2]:[E627 09:51:56.720992994 ProcessGroupNCCL.cpp:1515] [PG 1 Rank 2] Process group watchdog thread terminated with exception: [Rank 2] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2178, OpType=ALLREDUCE, NumelIn=1, NumelOut=1, Timeout(ms)=600000) ran for 600083 milliseconds before timing out.
+Exception raised from checkTimeout at ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0xe4c0cb77f86 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0xe4bbe5c88d2 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0xe4bbe5cf313 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0xe4bbe5d16fc in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xdbbf4 (0xe4c0c0dbbf4 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/bin/../lib/libstdc++.so.6)
+frame #5: <unknown function> + 0x94ac3 (0xe4c12894ac3 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x126850 (0xe4c12926850 in /lib/x86_64-linux-gnu/libc.so.6)
+
+[rank0]:[E627 09:51:56.114608546 ProcessGroupNCCL.cpp:1709] [PG 1 Rank 0] Timeout at NCCL work: 2177, last enqueued NCCL work: 2180, last completed NCCL work: 2176.
+[rank0]:[E627 09:51:56.115030493 ProcessGroupNCCL.cpp:621] [Rank 0] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank0]:[E627 09:51:56.115326867 ProcessGroupNCCL.cpp:627] [Rank 0] To avoid data inconsistency, we are taking the entire process down.
+[rank0]:[E627 09:51:56.117131095 ProcessGroupNCCL.cpp:1515] [PG 1 Rank 0] Process group watchdog thread terminated with exception: [Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2177, OpType=ALLREDUCE, NumelIn=198929280, NumelOut=198929280, Timeout(ms)=600000) ran for 600054 milliseconds before timing out.
+Exception raised from checkTimeout at ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x5cd13777f86 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0x5ccc51c88d2 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x5ccc51cf313 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0x5ccc51d16fc in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xdbbf4 (0x5cd12cdbbf4 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/bin/../lib/libstdc++.so.6)
+frame #5: <unknown function> + 0x94ac3 (0x5cd19494ac3 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x126850 (0x5cd19526850 in /lib/x86_64-linux-gnu/libc.so.6)
+
+[rank1]:[E627 09:51:56.145537640 ProcessGroupNCCL.cpp:1709] [PG 1 Rank 1] Timeout at NCCL work: 2177, last enqueued NCCL work: 2180, last completed NCCL work: 2176.
+[rank3]:[E627 09:51:56.146630221 ProcessGroupNCCL.cpp:1709] [PG 1 Rank 3] Timeout at NCCL work: 2177, last enqueued NCCL work: 2180, last completed NCCL work: 2176.
+[rank1]:[E627 09:51:56.151935374 ProcessGroupNCCL.cpp:621] [Rank 1] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank3]:[E627 09:51:56.153208679 ProcessGroupNCCL.cpp:621] [Rank 3] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank1]:[E627 09:51:56.153585236 ProcessGroupNCCL.cpp:627] [Rank 1] To avoid data inconsistency, we are taking the entire process down.
+[rank3]:[E627 09:51:56.154376462 ProcessGroupNCCL.cpp:627] [Rank 3] To avoid data inconsistency, we are taking the entire process down.
+[rank1]:[E627 09:51:56.156347702 ProcessGroupNCCL.cpp:1515] [PG 1 Rank 1] Process group watchdog thread terminated with exception: [Rank 1] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2177, OpType=ALLREDUCE, NumelIn=198929280, NumelOut=198929280, Timeout(ms)=600000) ran for 600053 milliseconds before timing out.
+Exception raised from checkTimeout at ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x13156f777f86 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0x1315211c88d2 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x1315211cf313 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0x1315211d16fc in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xdbbf4 (0x13156ecdbbf4 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/bin/../lib/libstdc++.so.6)
+frame #5: <unknown function> + 0x94ac3 (0x131575494ac3 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x126850 (0x131575526850 in /lib/x86_64-linux-gnu/libc.so.6)
+
+[rank3]:[E627 09:51:56.157188128 ProcessGroupNCCL.cpp:1515] [PG 1 Rank 3] Process group watchdog thread terminated with exception: [Rank 3] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2177, OpType=ALLREDUCE, NumelIn=198929280, NumelOut=198929280, Timeout(ms)=600000) ran for 600006 milliseconds before timing out.
+Exception raised from checkTimeout at ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0xaf2ccf77f86 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0xaf27e9c88d2 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0xaf27e9cf313 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0xaf27e9d16fc in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xdbbf4 (0xaf2cc4dbbf4 in /shareddisk/yexin/huanghj/miniconda3/envs/hallo/bin/../lib/libstdc++.so.6)
+frame #5: <unknown function> + 0x94ac3 (0xaf2d2c94ac3 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x126850 (0xaf2d2d26850 in /lib/x86_64-linux-gnu/libc.so.6)
+
+W0627 09:51:56.632000 15797023512384 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 3099909 closing signal SIGTERM
+W0627 09:51:56.635000 15797023512384 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 3099910 closing signal SIGTERM
+W0627 09:51:56.639000 15797023512384 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 3099912 closing signal SIGTERM
+E0627 09:51:58.023000 15797023512384 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: -6) local_rank: 2 (pid: 3099911) of binary: /shareddisk/yexin/huanghj/miniconda3/envs/hallo/bin/python3.10
+Traceback (most recent call last):
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/accelerate/commands/launch.py", line 1183, in launch_command
+    deepspeed_launcher(args)
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/accelerate/commands/launch.py", line 868, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-06-27_09:51:56
+  host      : cluster-2-compute-7.us-southcentral1-a.compute.internal
+  rank      : 2 (local_rank: 2)
+  exitcode  : -6 (pid: 3099911)
+  error_file: <N/A>
+  traceback : Signal 6 (SIGABRT) received by PID 3099911
+============================================================

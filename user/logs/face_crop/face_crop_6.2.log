@@ -1,0 +1,7 @@
+/shareddisk/yexin/huanghj/miniconda3/envs/hallo/lib/python3.10/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 2.0.8 (you have 1.4.18). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+process video nums: 2000
+Found 0 video files to process, process with 16.
+Processing Videos: 0it [00:00, ?it/s]Processing Videos: 0it [00:00, ?it/s]
+
+✅ 所有视频处理完成，共耗时 0.00 分钟，进程数为 16

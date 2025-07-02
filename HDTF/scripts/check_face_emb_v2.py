@@ -7,16 +7,14 @@ import torch
 import subprocess
 from tqdm import tqdm
 from concurrent.futures import ProcessPoolExecutor, as_completed
+import cv2
 
 def get_video_frame_count(video_path):
-    """使用ffmpeg获取视频帧数"""
-    cmd = [
-        "ffprobe", "-v", "error", "-select_streams", "v:0", "-count_packets",
-        "-show_entries", "stream=nb_read_packets", "-of", "csv=p=0", video_path
-    ]
-    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     try:
-        return int(result.stdout.strip())
+        cap = cv2.VideoCapture(video_path)
+        frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        cap.release()
+        return frames
     except ValueError:
         return -1  # 返回-1表示读取失败
 
@@ -41,15 +39,15 @@ def process_file(pt_file, input_dir, output_dir):
         print(f"Failed to retrieve frame count for {video_file}")
         return None
     
-    if pt_frame_count < video_frame_count:
-        return pt_file
+    if pt_frame_count == video_frame_count:
+        return str(pt_frame_count)
     return None
 
 def check_frame_mismatch(input_dir, output_dir, output_file):
     mismatched_files = []
     pt_files = [f for f in os.listdir(output_dir) if f.endswith(".pt")]
     
-    with ProcessPoolExecutor() as executor:
+    with ProcessPoolExecutor(64) as executor:
         future_to_file = {executor.submit(process_file, pt_file, input_dir, output_dir): pt_file for pt_file in pt_files}
         for future in tqdm(as_completed(future_to_file), total=len(pt_files), desc="Checking mismatched frames"):
             result = future.result()
@@ -64,8 +62,8 @@ def check_frame_mismatch(input_dir, output_dir, output_file):
     print(f"Check complete. Found {len(mismatched_files)} mismatched files. Details saved in {output_file}")
 
 if __name__ == "__main__":
-    input_directory = "/wangbenyou/huanghj/workspace/research/V-Express/HDTF/short_clip"
-    output_directory = "/wangbenyou/huanghj/workspace/research/V-Express/HDTF/new_face_info"
-    output_filename = "mismatched_files.txt"
+    input_directory = "/shareddisk/yexin/huanghj/data/TalkVid-160h/videos"
+    output_directory = "/shareddisk/yexin/huanghj/data/TalkVid-160h/new_face_info"
+    output_filename = "mismatched_face_files.txt"
     
     check_frame_mismatch(input_directory, output_directory, output_filename)

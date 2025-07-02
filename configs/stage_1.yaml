@@ -3,7 +3,7 @@ data:
   train_width: 512
   train_height: 512
   meta_paths:
-    - 'HDTF/data/hdtf_clip.json'
+    - 'data/TalkVid-80h-eng-57600.json'
     # - 'hdtf_3kps.json'
     # - 'part_01_wo_low_res_wo_low_syncnet_conf.json'
     # - 'p2.json'
@@ -31,7 +31,7 @@ solver:
   enable_xformers_memory_efficient_attention: True
   reference_net_gradient_checkpointing: False
   denoising_unet_gradient_checkpointing: False
-  max_train_steps: 50000
+  max_train_steps: 115200  # 20h:14400, 160h:115200
   max_grad_norm: 1.0
   # lr
   learning_rate: 1e-6
@@ -47,7 +47,24 @@ solver:
   adam_epsilon: 1.0e-8
 
 val:
-  validation_steps: 20
+  validation_steps: 1800
+  validate_before_training: False
+  validate_at_first_step: True
+  data: False
+  insightface_model_path: './model_ckpts/insightface_models/'
+  image_height: 512
+  image_width: 512
+  fps: 24
+  context_frames: 24
+  context_overlap: 4
+  num_inference_steps: 25
+  guidance_scale: 2.5
+  reference_attention_weight: 0.95
+  audio_attention_weight: 1.0
+  num_pad_audio_frames: 2
+  output_dir: ''
+
+
 
 noise_scheduler_kwargs:
   num_train_timesteps: 1000
@@ -81,5 +98,5 @@ stage1_ckpt_step: 283494
 
 seed: 12580
 resume_from_checkpoint: '' # 'latest'
-checkpointing_steps: 1000
-output_dir: './exp_output'
+checkpointing_steps: 1800
+output_dir: './exp_output-80h'

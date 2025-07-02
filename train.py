@@ -234,7 +234,8 @@ def log_validation(
         audio_processor,
         cfg,
         step,
-        timestamp
+        timestamp,
+        save_dir = None,
 ):
     ori_net = accelerator.unwrap_model(net)
     reference_net = ori_net.reference_net
@@ -263,9 +264,15 @@ def log_validation(
         scheduler=scheduler,
     ).to(dtype=dtype, device=device)
 
+    # app = FaceAnalysis(
+    #     providers=['CUDAExecutionProvider' if device.type == 'cuda' else 'CPUExecutionProvider'],
+    #     provider_options=[{'device_id': 0}] if device.type == 'cuda' else None,
+    #     root=cfg.val.insightface_model_path,
+    # )
+    ## 防止训练时爆显存，使用CPU进行人脸处理
     app = FaceAnalysis(
-        providers=['CUDAExecutionProvider' if device.type == 'cuda' else 'CPUExecutionProvider'],
-        provider_options=[{'device_id': 0}] if device.type == 'cuda' else None,
+        providers=['CPUExecutionProvider'],
+        provider_options=None,
         root=cfg.val.insightface_model_path,
     )
     app.prepare(ctx_id=0, det_size=(cfg.val.image_height, cfg.val.image_width))
@@ -335,7 +342,8 @@ def log_validation(
     )
 
     if accelerator.is_main_process:
-        output_path = osp.join(cfg.val.output_dir, f"{timestamp}", f"video-{step}.mp4")
+        output_path = osp.join(save_dir if save_dir is not None else cfg.val.output_dir, 
+                               "validation", f"video-{step}.mp4")
         os.makedirs(osp.dirname(output_path), exist_ok=True)
         save_video(video_tensor, audio_paths[0], output_path, device, fps)
         consumed_time = time.time() - start_time
@@ -353,9 +361,11 @@ def main():
     cfg = OmegaConf.load(args.config)
 
     timestamp = datetime.now().strftime("%m%d_%H%M")
+    # timestamp = "0629_0334"     ## temp
     exp_name = '.'.join(Path(args.config).name.split('.')[:-1]) + f"-{timestamp}"
 
-    kwargs = DistributedDataParallelKwargs(find_unused_parameters=False)
+    # kwargs = DistributedDataParallelKwargs(find_unused_parameters=False)
+    kwargs = DistributedDataParallelKwargs(find_unused_parameters=True)     ### modify to fix multi-gpu hang on bug
     accelerator = Accelerator(
         gradient_accumulation_steps=cfg.solver.gradient_accumulation_steps,
         mixed_precision=cfg.solver.mixed_precision,
@@ -383,7 +393,7 @@ def main():
 
     local_rank = accelerator.device
 
-    save_dir = f"{cfg.output_dir}/{exp_name}-0424_2120"
+    save_dir = f"{cfg.output_dir}/{exp_name}"
     if accelerator.is_main_process:
         pathlib.Path(save_dir).mkdir(exist_ok=True, parents=True)
         os.makedirs(f"{save_dir}/log", exist_ok=True)
@@ -714,26 +724,33 @@ def main():
         resume_step = global_step % num_update_steps_per_epoch
 
     ## validate before training.
-    if accelerator.is_main_process:
+    if accelerator.is_main_process and cfg.val.validate_before_training:
         generator = torch.Generator(device=accelerator.device)
         generator.manual_seed(cfg.seed)
-        # log_validation(
-        #     vae=vae,
-        #     net=net,
-        #     scheduler=noise_scheduler,
-        #     accelerator=accelerator,
-        #     audio_encoder=audio_encoder,
-        #     audio_processor=audio_processor,
-        #     cfg=cfg,
-        #     step=global_step,
-        #     timestamp=timestamp,
-        # )
+        log_validation(
+            vae=vae,
+            net=net,
+            scheduler=noise_scheduler,
+            accelerator=accelerator,
+            audio_encoder=audio_encoder,
+            audio_processor=audio_processor,
+            cfg=cfg,
+            step=global_step,
+            timestamp=timestamp,
+            save_dir=save_dir
+        )
 
     # Only show the progress bar once on each machine.
     progress_bar = tqdm(range(global_step, cfg.solver.max_train_steps), disable=not accelerator.is_local_main_process)
     progress_bar.set_description(f"{exp_name}, Steps")
 
     for epoch in range(first_epoch, num_train_epochs):
+        ### ---------- 断点续训：跳过已消费 batch ----------
+        if epoch == first_epoch and cfg.resume_from_checkpoint and resume_step > 0:
+            skip_batches = resume_step * cfg.solver.gradient_accumulation_steps
+            dataloader = accelerator.skip_first_batches(dataloader, skip_batches)
+            accelerator.print(f"[Resume] Skip first {skip_batches} batches (={resume_step} optimizer steps)")
+        
         train_loss = 0.0
         t_data_start = time.time()
         for step, batch in enumerate(dataloader):
@@ -840,7 +857,7 @@ def main():
                 break
 
             # save model after each epoch
-            if global_step % cfg.checkpointing_steps == 1:
+            if global_step % cfg.checkpointing_steps == 1 or global_step % 14400 == 0:
                 save_path = os.path.join(save_dir, f"checkpoint-{global_step}")
                 accelerator.save_state(save_path)
 
@@ -868,7 +885,7 @@ def main():
                         module = accelerator.unwrap_model(net.denoising_unet)
                         save_motion_module_checkpoint(module, save_dir, "motion_module", global_step)
             
-            if global_step % cfg.val.validation_steps == 0 or global_step == 1:
+            if global_step % cfg.val.validation_steps == 0 or global_step % 14400 == 0 or (cfg.val.validate_at_first_step and global_step == 1):
                 if cfg.val.data == True:
                     net.eval()
                     val_losses = []
@@ -897,6 +914,7 @@ def main():
                         cfg=cfg,
                         step=global_step,
                         timestamp=timestamp,
+                        save_dir=save_dir,
                     )
 
     # save model after each epoch

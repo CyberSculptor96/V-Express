@@ -2,14 +2,15 @@ import os
 import torch
 import cv2
 from insightface.app import FaceAnalysis
+from tqdm import tqdm
 
 # 模型文件目录
 model_root_path = './model_ckpts/insightface_models/'
 
 # 输入视频所在目录
-input_dir = '/wangbenyou/huanghj/workspace/research/V-Express/HDTF/short_clip'
+input_dir = '/shareddisk/yexin/huanghj/data/TalkVid-160h/videos-crop'
 # 输出人脸信息文件所在目录
-output_dir = '/wangbenyou/huanghj/workspace/research/V-Express/HDTF/new_face_info'
+output_dir = '/shareddisk/yexin/huanghj/data/TalkVid-160h/new_face_info'
 os.makedirs(output_dir, exist_ok=True)
 
 # 初始化人脸分析模型
@@ -20,22 +21,22 @@ app = FaceAnalysis(
 )
 app.prepare(ctx_id=0, det_size=(512, 512))
 
-# 读取无效的 .pt 文件列表
-invalid_files_path = "invalid_pt_files.txt"
-with open(invalid_files_path, "r") as f:
-    invalid_files = {line.strip() for line in f.readlines()}
+# # 读取无效的 .pt 文件列表
+# invalid_files_path = "invalid_pt_files.txt"
+# with open(invalid_files_path, "r") as f:
+#     invalid_files = {line.strip() for line in f.readlines()}
 
 # 定义起始文件
 start_file = 'WRA_TomPrice_000_clip_9.mp4'
 start_processing = True
 
 # 获取并按字典序（sorted）列出所有 .mp4 文件
-video_files = sorted([f for f in os.listdir(input_dir) if f.endswith('.mp4')])
-video_files = sorted([f.replace('.pt', '.mp4') for f in invalid_files if f.endswith('.pt')])
+video_files = sorted([f for f in os.listdir(input_dir) if f.endswith('.mp4')])[:100]
+# video_files = sorted([f.replace('.pt', '.mp4') for f in invalid_files if f.endswith('.pt')])
 print(f'Found {len(video_files)} video files')
 
 # 遍历所有视频文件并处理
-for video_file in video_files:
+for video_file in tqdm(video_files):
     # 检查是否达到了起始文件
     if video_file == start_file:
         start_processing = True
@@ -48,6 +49,8 @@ for video_file in video_files:
     vid_path = os.path.join(input_dir, video_file)
     # 构建输出 .pt 文件路径（将 .mp4 后缀改为 .pt）
     face_info_path = os.path.join(output_dir, video_file.replace('.mp4', '.pt'))
+    if os.path.exists(face_info_path):
+        continue
 
     print(f'Processing video: {vid_path}')
 

@@ -1,0 +1,85 @@
+audio_encoder_path: ./pretrained_model/wav2vec2-base-960h/
+audio_projection_path: ''
+base_model_path: ./pretrained_model/sd-image-variations-diffusers
+checkpointing_steps: 1000
+data:
+  audio_embeddings_type: global
+  flip_rate: 0.5
+  kps_drop_rate: 0
+  kps_type: v
+  lip_loss_weight: 1
+  meta_paths:
+  - data/TalkVid-20h-eng-14400.json
+  num_frames: 1
+  num_padding_audio_frames: 2
+  reference_drop_rate: 0
+  reference_margin: 30
+  sample_rate: 1
+  train_bs: 8
+  train_height: 512
+  train_width: 512
+denoising_unet_path: ./pretrained_model/Moore/denoising_unet.pth
+denoising_unet_state_dict_type: moore_pretrained
+enable_zero_snr: true
+module_training:
+  audio_projection: false
+  denoising_unet: true
+  motion_module: false
+  reference_net: true
+  v_kps_guider: true
+motion_module_path: ''
+noise_offset: 0.05
+noise_scheduler_kwargs:
+  beta_end: 0.012
+  beta_schedule: scaled_linear
+  beta_start: 0.00085
+  clip_sample: false
+  num_train_timesteps: 1000
+  steps_offset: 1
+output_dir: ./exp_output-20h
+reference_net_path: ./pretrained_model/Moore/reference_unet.pth
+resume_from_checkpoint: ''
+save_all: true
+seed: 12580
+snr_gamma: 5.0
+solver:
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-08
+  adam_weight_decay: 0.01
+  denoising_unet_gradient_checkpointing: false
+  enable_xformers_memory_efficient_attention: true
+  gradient_accumulation_steps: 1
+  learning_rate: 1.0e-06
+  lr_scheduler: constant
+  lr_warmup_steps: 1
+  max_grad_norm: 1.0
+  max_train_steps: 115200
+  mixed_precision: fp16
+  reference_net_gradient_checkpointing: false
+  scale_lr: false
+  use_8bit_adam: true
+stage1_ckpt_dir: null
+stage1_ckpt_step: 283494
+train_stage: stage_1
+uncond_ratio: 0.1
+v_kps_guider_path: ./pretrained_model/Moore/pose_guider.pth
+vae_model_path: ./pretrained_model/sd-vae-ft-mse/
+val:
+  audio_attention_weight: 1.0
+  context_frames: 24
+  context_overlap: 4
+  data: false
+  fps: 24
+  guidance_scale: 2.5
+  image_height: 512
+  image_width: 512
+  insightface_model_path: ./model_ckpts/insightface_models/
+  num_inference_steps: 25
+  num_pad_audio_frames: 2
+  output_dir: ''
+  reference_attention_weight: 0.95
+  validate_at_first_step: false
+  validate_before_training: false
+  validation_steps: 1000
+weight_dtype: fp16

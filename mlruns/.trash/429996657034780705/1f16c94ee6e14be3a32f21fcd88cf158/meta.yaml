@@ -1,0 +1,15 @@
+artifact_uri: file:///shareddisk/yexin/huanghj/workspace/V-Express/mlruns/429996657034780705/1f16c94ee6e14be3a32f21fcd88cf158/artifacts
+deleted_time: 1751265928949
+end_time: null
+entry_point_name: ''
+experiment_id: '429996657034780705'
+lifecycle_stage: deleted
+run_id: 1f16c94ee6e14be3a32f21fcd88cf158
+run_name: 20250629-1759
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751219968119
+status: 1
+tags: []
+user_id: yexin
