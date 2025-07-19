@@ -538,21 +538,16 @@ class VExpressPipeline(DiffusionPipeline):
                     input_latents = latents[:, :, context, ...].to(device)
                     input_latents = input_latents.repeat(2 if do_classifier_free_guidance else 1, 1, 1, 1, 1)
                     input_latents = self.scheduler.scale_model_input(input_latents, t)
-                    # noise_pred = self.denoising_unet(
-                    #     input_latents,
-                    #     t,
-                    #     encoder_hidden_states=latent_audio_embeddings.reshape(-1, num_tokens, dim),
-                    #     kps_features=latent_kps_feature,
-                    #     return_dict=False,
-                    # )[0]
-                    ## test: 去除kps_feature的逻辑
+                    
+                    ## fix critical bug：之前的推理关闭了kps_features
                     noise_pred = self.denoising_unet(
                         input_latents,
                         t,
                         encoder_hidden_states=latent_audio_embeddings.reshape(-1, num_tokens, dim),
-                        kps_features=None,
+                        kps_features=latent_kps_feature,
                         return_dict=False,
                     )[0]
+
                     if do_classifier_free_guidance:
                         noise_pred_uncond, noise_pred_text = noise_pred.chunk(2)
                         noise_pred = noise_pred_uncond + guidance_scale * (noise_pred_text - noise_pred_uncond)
